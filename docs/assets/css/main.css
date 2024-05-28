@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
 @import url("fontawesome-all.min.css");
 
+
 /*
 	Helios by HTML5 UP
 	html5up.net | @ajlkn
@@ -1793,6 +1794,13 @@ input, select, textarea {
 		.image.fit {
 			display: block;
 			width: 100%;
+			height: 20%;
+		}
+
+		.image.timeline {
+			display: block;
+			width: 100%;
+			border-radius: 80px;
 		}
 
 		.image.featured {
@@ -2281,7 +2289,6 @@ input, select, textarea {
 	}
 
 /* Nav */
-
 	#nav {
 		position: absolute;
 		top: 0;
@@ -2622,11 +2629,13 @@ input, select, textarea {
 		.carousel article {
 			display: inline-block;
 			width: 22em;
-			background: #03500d;
+			background: #000000;
 			text-align: center;
 			padding: 0 1em 3em 1em;
+			box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
 			margin: 0 2em 0 0;
 			white-space: normal;
+			border-radius: 20px;
 			opacity: 1.0;
 			-moz-transition: opacity 0.75s ease-in-out;
 			-webkit-transition: opacity 0.75s ease-in-out;
@@ -2672,12 +2681,12 @@ input, select, textarea {
 			}
 
 				.carousel .reel {
-					padding: 0 1.5em 0 1.5em;
+					padding: 0em 1.5em 0 1.5em;
 				}
 
 				.carousel article {
 					width: 18em;
-					margin: 0 1.25em 0 0;
+					margin: 0 2em 0 0;
 				}
 
 	}

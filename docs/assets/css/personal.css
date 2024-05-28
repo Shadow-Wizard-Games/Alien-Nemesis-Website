@@ -122,9 +122,9 @@
 
 }
 
-body-software {
+.body-software {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #7bff00;
   margin: 0;
   padding: 0;
   display: flex;
@@ -134,50 +134,101 @@ body-software {
 }
 
 .container-software {
-  width: 90%;
-  max-width: 1400px;
+  width: 100%;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
 h1 {
-  text-align: center;
-  font-size: 32px;
+  text-align: left;
+  font-size: 24px;
   margin-bottom: 40px;
   margin-top: 20px;
 }
 
 .card-grid-software {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 40px;
 }
 
 .card-software {
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
+  padding-right: 10px;
 }
 
 .card-software img {
   width: 80px;
   height: 80px;
   margin-right: 20px;
+  margin-left: 20px;
+  border-radius: 30px;
 }
 
 .card-content-software {
-  padding: 20px;
+  padding: 10px;
 }
 
 .card-content-software h2 {
   margin: 0;
-  font-size: 22px;
+  padding-top: 1em;
+  font-size: 26px;
+  font-family: Alien Invader;
+  color: rgb(255, 255, 255);
 }
 
 .card-content-software p {
   margin-top: 10px;
-  color: #555;
+  color: #ffffff;
 }
+
+.wide-fullcontainer {
+  background-color: #000000;
+  border-radius: 10px;
+  display: flex;
+  align-items: start;
+  padding: 40px;
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
+  max-width: 1400px;
+  width: 100%;
+  margin: 20px;
+}
+
+.wide-content {
+  flex: 1;
+}
+
+.wide-content h1 {
+  font-size: 48px;
+  color: #15ff00; /* Brown color */
+  font-family: Alien Invader;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.wide-content p {
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.wide-image {
+  flex: 1;
+  display: flex;
+  padding-left: 2em;
+  justify-content: center;
+}
+
+.wide-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

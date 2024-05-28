@@ -101,3 +101,83 @@
 .play-button:active {
     background-color: rgb(0, 150, 0); /* Change color on click */
 }
+
+.h4-header{
+  font-family: Alien Invader;
+  font-size: 18px;
+  color: rgb(0, 255, 0);
+}
+
+.production-timeline-info{
+  color: white;
+}
+
+.production-timeline-subtitle{
+  color: white;
+  font-style: italic;
+}
+
+.production-info{
+  font-size: 36px; font-family: Alien Invader; color: rgb(243, 241, 114);
+
+}
+
+body-software {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container-software {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.card-grid-software {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.card-software {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-software img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.card-content-software {
+  padding: 20px;
+}
+
+.card-content-software h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.card-content-software p {
+  margin-top: 10px;
+  color: #555;
+}

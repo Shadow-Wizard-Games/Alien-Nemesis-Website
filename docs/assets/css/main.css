@@ -2648,7 +2648,7 @@ input, select, textarea {
 			}
 
 			.carousel article .image {
-				position: relative;
+				position: center;
 				left: -1em;
 				top: 0;
 				object-fit:fill;
@@ -2661,6 +2661,7 @@ input, select, textarea {
 			.carousel article p {
 				text-align: center;
 				color: white;
+				font-size: 18px;
 			}
 
 /* Wide */

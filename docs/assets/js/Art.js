@@ -1,7 +1,7 @@
 setTimeout(function() {
     var data = [
         {
-            AboutDevTypeText: "<span style='font-family: Alien Invader, sans-serif; font-size: 60px; color: rgb(12, 248, 44);'>Art</span>"
+            AboutDevTypeText: "<span style='font-family: Alien Invader, sans-serif; font-size: 60px; color: rgb(12, 248, 44);'>Art Department</span>"
         }
     ];
 

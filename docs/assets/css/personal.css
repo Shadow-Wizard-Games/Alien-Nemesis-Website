@@ -232,3 +232,154 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.teams-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.teams-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+.teams-card {
+  background-color: rgb(46, 46, 46);
+  border-radius: 20px;
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.teams-flip .teams-card {
+  flex-direction: row-reverse;
+}
+
+.teams-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.teams-image {
+  border-radius: 10%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.teams-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.teams-title {
+  font-size: 32px;
+  color: #00fa36;
+  font-family: Alien Invader;
+  margin-bottom: 10px;
+}
+
+.teams-description {
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.teams-button {
+  padding: 10px 20px;
+  background-color: #0f6107;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.teams-button:hover {
+  background-color: #756611;
+}
+
+/* Adjustments to ensure consistent sizing */
+.teams-section:not(.teams-flip) .teams-card {
+  margin: 0 10px;
+  padding: 0 10px;
+  margin-bottom: 4em;
+}
+
+.teams-section.teams-flip .teams-card {
+  margin: 0 10px;
+  padding: 0 10px;
+  margin-bottom: 4em;
+}
+
+/* Members */
+.team-member-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 120px;
+  overflow: hidden;
+}
+
+.team-member {
+  background-color: rgb(36, 36, 36);
+  border-radius: 8px;
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
+  width: 280px;
+  margin: 50px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.member-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.member-name {
+  font-size: 32px;
+  color: #ffffff;
+  margin: 10px 0;
+  font-family: Alien Invader;
+}
+
+.member-role {
+  background-color: #eee094;
+  color: rgb(0, 0, 0);
+  padding: 5px 86px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.member-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.link-icon {
+  color: #3cff00;
+  font-size: 42px;
+  text-decoration: none;
+  padding: 10px
+}
+
+.link-icon:hover {
+  color: #928a15;
+}

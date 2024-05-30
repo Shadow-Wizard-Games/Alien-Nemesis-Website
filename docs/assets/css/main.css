@@ -164,8 +164,8 @@ textarea {
 /* Basic */
 
 @font-face {
-    font-family: 'AlienInvader';
-    src: url('../fonts/AlienInvader-PKnPm') format('truetype');
+    font-family: 'Alien Invader';
+    src: url('../webfonts/fonts/AlienInvader-PKnPm.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

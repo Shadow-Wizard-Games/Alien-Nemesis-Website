@@ -163,6 +163,13 @@ textarea {
 
 /* Basic */
 
+@font-face {
+    font-family: 'AlienInvader';
+    src: url('../fonts/AlienInvader-PKnPm') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
 	box-sizing: border-box;
 }
@@ -178,7 +185,7 @@ body {
 	color: #5b5b5b;
 	font-size: 15pt;
 	line-height: 1.85em;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif, 'Alien Invader';
 	font-weight: 300;
 }
 

@@ -490,10 +490,17 @@
                     
                 </div>
             <br>
+            
                 </div>
             </div>
+            
         </div>
+        
         <hr>
+        
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <div id="editor1" class="editor-container"></div>
+        </div>
 		<!-- Footer -->
 		<div id="footer">
 			<div class="container">
@@ -618,3 +625,178 @@
 </html>
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<!-- Monaco Editor -->
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor/min/vs/loader.js"></script>
+<script>
+    require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+        // Helper function to create an editor and set its layout
+        function createEditor(id, value, language) {
+            const container = document.getElementById(id);
+            const editor = monaco.editor.create(container, {
+                value: value,
+                language: language,
+                theme: 'vs-dark',
+                readOnly: true // Set editor to read-only
+            });
+            // Inject CSS rules to round the corners of the editor
+            const styleElement = document.createElement('style');
+            styleElement.innerHTML = `
+                .monaco-editor .overflow-guard,
+                .monaco-editor .monaco-scrollable-element {
+                    border-radius: 10px;
+                    overflow: hidden !important;
+                    border: none !important; /* Ensure no border */
+                }
+            `;
+            editor._domElement.appendChild(styleElement); // Append style to the editor's DOM
+
+            // Adjust the layout to fit the container size
+            function resizeEditor() {
+                editor.layout({
+                    width: container.clientWidth,
+                    height: container.clientHeight
+                });
+            }
+
+            // Initial layout adjustment
+            resizeEditor();
+
+            // Adjust layout on window resize
+            window.addEventListener('resize', resizeEditor);
+        }
+
+        // Editor 1
+        createEditor('editor1', `
+//------------------------
+// Smol CRT Shader ~hekbas
+//------------------------
+
+#version 450 core
+precision highp float;
+uniform sampler2D albedo;
+uniform vec2 warp;
+uniform float time;
+
+in vec2 fragCoord;
+layout(location = 1) out vec4 fragColor;
+
+vec2 kWarp = vec2(1.0 / warp.x, 1.0 / warp.y);
+
+vec2 WarpUV(vec2 uv)
+{
+    uv = uv * 2.0 - 1.0;
+    uv *= vec2(
+        1.0 + (uv.y * uv.y) * kWarp.x,
+        1.0 + (uv.x * uv.x) * kWarp.y
+    );
+    return uv * 0.5 + 0.5;
+}
+
+void DrawVignette(inout vec3 color, vec2 uv)
+{
+    float vignette = uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y);
+    vignette = clamp(pow(16.0 * vignette, 0.3), 0.0, 1.0);
+    color *= vignette;
+}
+
+void DrawScanLine(inout vec3 color, vec2 uv)
+{
+    float scanline = clamp(0.95 + 0.05 * cos(3.14 * (uv.y + 0.008 * time) * 240.0 * 1.0), 0.0, 1.0);
+    float grille = 0.85 + 0.15 * clamp(1.5 * cos(3.14 * uv.x * 640.0 * 1.0), 0.0, 1.0);
+    color *= scanline * grille * 1.2;
+}
+
+void main()
+{
+    vec2 uv = fragCoord.xy;
+    vec2 crtUV = WarpUV(uv);
+
+    vec3 color = texture(albedo, crtUV).rgb;
+
+    if(crtUV.x < 0.0 || crtUV.x > 1.0 || crtUV.y < 0.0 || crtUV.y > 1.0)
+    {
+        color = vec3(0.0, 0.0, 0.0);
+    }
+
+    DrawVignette(color, crtUV);
+
+    DrawScanLine(color, crtUV);
+
+    fragColor.xyz = color;
+    fragColor.w = 1.0;
+}
+
+`, 'cpp');
+
+        // Editor 2
+        createEditor('editor2', `#include <vector>
+#version 450 core
+precision highp float;
+
+uniform sampler2D albedo;
+uniform vec2 warp;
+uniform float time;
+
+in vec2 fragCoord;
+layout(location = 1) out vec4 fragColor;
+
+vec2 kWarp = vec2(1.0 / warp.x, 1.0 / warp.y);
+
+vec2 WarpUV(vec2 uv)
+{
+    uv = uv * 2.0 - 1.0;
+    uv *= vec2(
+        1.0 + (uv.y * uv.y) * kWarp.x,
+        1.0 + (uv.x * uv.x) * kWarp.y
+    );
+    return uv * 0.5 + 0.5;
+}
+
+void DrawVignette(inout vec3 color, vec2 uv)
+{
+    float vignette = uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y);
+    vignette = clamp(pow(16.0 * vignette, 0.3), 0.0, 1.0);
+    color *= vignette;
+}
+
+void DrawScanLine(inout vec3 color, vec2 uv)
+{
+    float scanline = clamp(0.95 + 0.05 * cos(3.14 * (uv.y + 0.008 * time) * 240.0 * 1.0), 0.0, 1.0);
+    float grille = 0.85 + 0.15 * clamp(1.5 * cos(3.14 * uv.x * 640.0 * 1.0), 0.0, 1.0);
+    color *= scanline * grille * 1.2;
+}
+
+void main()
+{
+    vec2 uv = fragCoord.xy;
+    vec2 crtUV = WarpUV(uv);
+
+    vec3 color = texture(albedo, crtUV).rgb;
+
+    if(crtUV.x < 0.0 || crtUV.x > 1.0 || crtUV.y < 0.0 || crtUV.y > 1.0)
+    {
+        color = vec3(0.0, 0.0, 0.0);
+    }
+
+    DrawVignette(color, crtUV);
+
+    DrawScanLine(color, crtUV);
+
+    fragColor.xyz = color;
+    fragColor.w = 1.0;
+}
+
+}`, 'cpp');
+
+        // Editor 3
+        createEditor('editor3', `#include <string>
+using namespace std;
+
+int main() {
+    string str = "Hello, World!";
+    cout << str.length() << endl;
+    return 0;
+}`, 'cpp');
+    });
+</script>

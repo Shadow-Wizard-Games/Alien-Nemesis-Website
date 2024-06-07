@@ -570,3 +570,20 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+.editor-container {
+  width: 60%; /* Adjust the width as needed */
+  height: 300px;
+  margin-bottom: 20px;
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
+  position: relative; /* Ensure relative positioning */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Custom scrollbar styles */
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider {
+  background: #1eff00 !important;
+}
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider:hover {
+  background: #f7e287 !important;
+}

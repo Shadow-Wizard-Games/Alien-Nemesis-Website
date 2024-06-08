@@ -601,3 +601,26 @@ h1 {
   color: rgb(243, 223, 150); /* Color on hover */
   text-decoration: underline; /* Underline on hover */
 }
+
+.frame-container {
+  width: 40%; /* Adjust as needed */
+  max-width: 1200px; /* Adjust as needed */
+  height: 80vh; /* Adjust as needed */
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Add padding for better appearance */
+  box-sizing: border-box;
+}
+
+.frame-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}

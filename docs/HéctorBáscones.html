@@ -63,7 +63,7 @@
 		<div class="bio-body">
             <div class="bio-container">
                 <h1 class="bio-name">Héctor Báscones</h1>
-                <img src="images/members/code/arnau.jpg" alt="Profile Picture" class="bio-profile-pic">
+                <img src="images/members/code/hekbas.png" alt="Profile Picture" class="bio-profile-pic">
                 <p class="bio-description">
                     Hello there! I’m Héctor Báscones, undergraduate student at CITM - UPC. 
                     I am currently pursuing a degree in Game Design and Development in Barcelona.
@@ -120,38 +120,78 @@
                         <div class="bio-container" style="width: 800px;
                         position: relative;
                         margin: 40px;">
-                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Animation Module</h4>
-                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
-                            <li style="font-size: 24px; color: white;">
-                                Ozz </li>
-                                <li style="font-size: 24px; color: white;">Building Ozz libraries</li>
-                                <li style="font-size: 24px; color: white;"> Ozz implementation </li>
-                                <li style="font-size: 24px; color: white;">Partial Blending</li>
-                                <li style="font-size: 24px; color: white;">Animation Panel</li>
-                            
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Animation Module</h4>
+                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 18px;">
+                            Alongside Alex Delgado, I implemented an animation module from scratch, using the Ozz-Animation library. 
+                            This involved building the necessary .lib files, creating a new project and Implementing:
+                            <img src="images/bio/hector/animation.gif" style="object-fit: cover; height:460px; width: 680px; padding-top: 20px;" alt="" />
+                            <div style="display: flex; flex-direction: row; justify-content: space-evenly; flex-wrap: wrap;">
+                                <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Animator and animation  files</li>
+                                    <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Fbx to custom .mesh tools</li>
+                                    <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Play / Pause / Set Speed</li>
+                                    <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Support for partial blending</li>
+                                    <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Animation Panel for the Editor</li>
+                            </div>
                         </p>
-                        <img src="images/engine/TheOneLogo.png" style="object-fit: cover; height:200px;" alt="" />
+                        
                         </div>
                         <div class="bio-container" style="width: 800px;
                         position: relative;
                         margin: 40px;">
-                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Item Manager</h4>
-                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
-                            I designed the logic of the ItemManager by creating dictionaries to save the items by unique IDs. 
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Render / Post Process Pipeline</h4>
+                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 18px;">
+                            At some point, the 2D and 3D rendering modules had to be managed concurrently with a variety of Shader effects. 
+                            To achieve this, I developed a Render / Post-Processing pipeline that could manage multiple rendering targets, 
+                            as well as offering the necessary functionality to create and manage OpenGL’s Framebuffers and Attachments. 
+                            <img src="images/bio/hector/render.gif" style="object-fit: cover; height:300px; width: 700px; padding-top: 20px;" alt="" />
+                            <h4 style="padding-top: 10px; color:rgb(9, 255, 0); font-size: 24px; text-align: center;">Implementation</h4>
+                            <div style="display: flex; flex-direction: row; justify-content: space-evenly; flex-wrap: wrap;">
+                                <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">Deferred Rendering / Lighting</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">Real Time Shadow Mapping</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">Pixel Art Effect</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">Texture Filtering</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">CRT Monitor Shader</li>
+                            </div>
+                            <h4 style="padding-top: 10px; color:rgb(9, 255, 0); font-size: 24px; text-align: center; padding-top: 20px;">Research, Viability and Testing</h4>
+                            <div style="display: flex; flex-direction: row; justify-content: space-evenly; flex-wrap: wrap;">
+                                <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">SSAO</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">Bloom</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">Edge Detection</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">Color Quantization & Dithering</li>
+                                    <li style="font-size: 18px; color: rgb(255, 255, 255); font-weight: bold; margin: 5px; text-wrap: nowrap;">DepthBuffer Fog</li>
+                            </div>
                         </p>
-                        <img src="images/bio/Jonathan/ItemManager.png" style="object-fit: cover; height:200px;" alt="" />
                         </div>
                         <div class="bio-container" style="width: 800px;
                         position: relative;
                         margin: 40px;">
-                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Enemies Behaviors & Animations</h4>
-                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
-                            By following the guidelines given by the design team, I coded all the behaviors for the normal enemies.
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Engine Usability</h4>
+                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 18px;">
+                            As much work as we put in the initial development of the engine, due to time constraints and lack of knowledge in certain areas, 
+                            some functionalities of TheOne need to be reworked or implemented from scratch.
+                            <div style="display: flex; flex-direction: column; justify-content: space-evenly; flex-wrap: wrap;">
+                                <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Overhaul Transform Component, Quaternions, ImGuizmo</li>
+                                    <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Redesign Camera Component</li>
+                                    <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Frustum Culling</li>
+                                    <li style="font-size: 18px; color: rgb(9, 255, 0); font-weight: bold; margin: 10px; text-wrap: nowrap;">Raycasting</li>
+                            </div>
                         </p>
-                        <img src="images/bio/Jonathan/EnemyBehavior.png" style="object-fit: cover; height:200px;" alt="" />
+                        <img src="images/engine/TheOneLogo.png" style="object-fit: cover; height:200px; width: 200px; border-radius: 5%;" alt="" />
+                        </div>
+                        <div class="bio-container" style="width: 800px;
+                        position: relative;
+                        margin: 40px;">
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Editor Design / Utilities</h4>
+                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 18px;">
+                            I’ve poured my passion for game development in TheOneEngine since its foundation 6 months ago, and I must admit I've grown attached to it.
+                            I have taken extra care to streamline the Engine’s built-in Editor, not only to provide functionality for the development 
+                            of the game, but to offer a pleasant and user oriented experience.
+                        </p>
+                        <img src="images/bio/hector/editor.png" style="object-fit: cover; height:420px; width: 760px; border-radius: 5%;" alt="" />
                         </div>
                     </div>
                 </div>
+                
                 <hr>
                 <h2 style="font-family: Alien Invader; color: rgb(0, 252, 0); text-align: center; padding-top: 20px; padding-bottom: 40px;">Code Snippets</h2>
                 <div style="display: flex; flex-direction: row; justify-content: space-evenly">

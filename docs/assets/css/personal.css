@@ -469,6 +469,7 @@ h1 {
   background-color: rgb(49, 49, 49);
   box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
 }
+
 .bio-tab-content {
   display: none;
   padding: 20px;
@@ -486,7 +487,7 @@ h1 {
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  width: 800px;
   position: relative;
   margin: auto;
   background-color: rgb(37, 37, 37);
@@ -575,9 +576,7 @@ h1 {
   width: 60%; /* Adjust the width as needed */
   height: 300px;
   margin-bottom: 20px;
-  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
-  position: relative; /* Ensure relative positioning */
-  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0); /* Ensure relative positioning */
 }
 
 /* Custom scrollbar styles */
@@ -585,5 +584,17 @@ h1 {
   background: #1eff00 !important;
 }
 .monaco-editor .monaco-scrollable-element > .scrollbar > .slider:hover {
-  background: #f7e287 !important;
+  background: #e9d169 !important;
+}
+
+/* Style for the link */
+.styled-link {
+  color: rgb(0, 255, 0); /* Default link color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Style for link on hover */
+.styled-link:hover {
+  color: rgb(243, 223, 150); /* Color on hover */
+  text-decoration: underline; /* Underline on hover */
 }

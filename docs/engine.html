@@ -67,8 +67,15 @@
 		<div class="wrapper style2">
 		</div>
 		<article id="main" class="container special">
-			<a href="#" class="image featured"><img src="images/engine/TheOneLogo.png" alt="TheOneEngine"
-					style="height: 100px; width: 100px;" /></a>
+			<header>
+				<h2 class="production-info" style="font-size: 60px; color: rgb(25, 241, 6);"><a href="#">The One
+						Engine</a></h2>
+			</header>
+			<a href="https://github.com/Shadow-Wizard-Games/TheOneEngine" target="_blank" class="image logo">
+				<div style="display: flex; flex-direction: row; justify-content: center; align-items: center;"><img
+						src="images/engine/TheOneLogo.png" alt="TheOneEngine" style="height: 300px; width: 300px;;" />
+				</div>
+			</a>
 			<header>
 				<div>
 					<div id="textContainer" class="typeing">
@@ -82,6 +89,7 @@
 					Nemesis and has been constantly updated.
 				</p>
 			</header>
+			<hr />
 		</article>
 
 	</div>
@@ -91,38 +99,39 @@
 
 		<div class="container">
 
-			<hr />
-
 			<header>
 				<h3 class="production-info" style="margin-top: 80px; margin-bottom:30px;">
 					Features</h3>
 			</header>
 
 			<div class="row" style="margin-bottom: 100px;">
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/customlayout.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Custom Layouts</a></h3>
+						<h3><a>Custom Layouts</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						Our engine makes use of ImGUI, a C++ graphical user interface library. Users can customize the
 						editor interface to meet their specific needs.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/ResourceManager.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Resource Manager</a></h3>
+						<h3><a>Resource Manager</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						Optimizes asset usage by reusing resources such as models, textures, materials and shaders,
 						reducing the engine load.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/AnimationModule.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Animation</a></h3>
+						<h3><a>Animation</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						By passing an .fbx file with an animation in it, you can use it to animate models in the engine.
@@ -132,8 +141,9 @@
 				</article>
 			</div>
 			<div class="row" style="margin-bottom: 100px;">
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/2DCollider.gif" alt="" /></a>
 					<header>
 						<h3><a href="#">2D Physics</a></h3>
 					</header>
@@ -142,10 +152,11 @@
 						Collider components to the GameObjects to see the colliding behaviour.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/shaders.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Shaders</a></h3>
+						<h3><a>Shaders</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						The scenes are rendered in a separated render pipeline. Also includes vertex shaders and
@@ -153,10 +164,11 @@
 						shaders.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/Lighting.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Lighting</a></h3>
+						<h3><a>Lighting</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						Alongside the shaders, we are able to render lights and shadows in the engine. In the editor,
@@ -165,10 +177,11 @@
 				</article>
 			</div>
 			<div class="row" style="margin-bottom: 100px;">
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img src="images/engine/ui.gif"
+							alt="" /></a>
 					<header>
-						<h3><a href="#">User Interface</a></h3>
+						<h3><a>User Interface</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						With the shaders, the engine allows to use 2D canvases that can act as the user interface for
@@ -176,20 +189,22 @@
 						scripting module.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/particleSystem.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Particles System</a></h3>
+						<h3><a>Particles System</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						The particle system allows the user to create custom particles, by using images or solid colors.
 						The properties can be modified to your liking in the panel inspector.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/audio.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Audio</a></h3>
+						<h3><a>Audio</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						TheOneEngine has an audio module using Wwise. In the editor, you can use AudioSource so that the
@@ -199,20 +214,22 @@
 				</article>
 			</div>
 			<div class="row" style="margin-bottom: 100px;">
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/camera.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Camera</a></h3>
+						<h3><a>Camera</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						The editor features the use of cameras. You can add as many cameras as you want thanks to the
 						frame buffer developed. Also includes camera easings to make smooth movements.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/scripting.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Scripting</a></h3>
+						<h3><a>Scripting</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						Using mono as the software platform to create cross platform application, allows to use C# as
@@ -220,14 +237,230 @@
 						the scripting engine.
 					</p>
 				</article>
-				<article class="col-4 col-12-mobile special">
-					<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/sceneSerialization.gif" alt="" /></a>
 					<header>
-						<h3><a href="#">Scene Serialization</a></h3>
+						<h3><a>Scene Serialization</a></h3>
 					</header>
 					<p style="color: rgba(255, 255, 255, 0.75);">
 						Using our own custom format, you are able to save the scene along with the GameObjects, scripts
 						and load it as many times you need to.
+					</p>
+				</article>
+			</div>
+			<div class="row" style="margin-bottom: 100px;">
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/Renderer2D.gif" alt="" /></a>
+					<header>
+						<h3><a>Batch Renderer 2D</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						Migration from immediate mode to a Renderer 2D using the Batching technique with the ability to
+						render 2D primitives such as Quads, Images, Lines, Circles and Text.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img
+							src="images/engine/renderer3d.png" alt="" /></a>
+					<header>
+						<h3><a>Instance Renderer 3D</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						Renderer 3D making use of an instance buffer for each type of mesh, saving draw calls and
+						increasing performance.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a class="image featured" style="height: 300px; object-fit: fill;"><img src="images/engine/crt.gif"
+							alt="" /></a>
+					<header>
+						<h3><a>CRT</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						We also feature a CRT effect in our Renderer options inside the engine if you want to add a
+						retro effect in the game you are making.
+					</p>
+				</article>
+			</div>
+
+			<hr />
+		</div>
+
+		<div class="container">
+
+			<header>
+				<h3 class="production-info" style="margin-top: 120px; margin-bottom:30px;">
+					Libraries</h3>
+			</header>
+
+			<div class="row" style="margin-bottom: 100px;">
+				<article class="col-4engine">
+					<a href="https://assimp.org/" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/Assimp.jpeg" alt="" /></a>
+					<header>
+						<h3><a href="https://assimp.org/" target="_blank">Assimp</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						A library to import and export various 3D-model-formats including scene-post-processing to
+						generate missing render data.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://opengl.org/" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/opengl.jpg" alt="" /></a>
+					<header>
+						<h3><a href="https://opengl.org/" target="_blank">OpenGL</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						An interface to draw graphics.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://glew.sourceforge.net/" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/glew.png" alt="" /></a>
+					<header>
+						<h3><a href="https://glew.sourceforge.net/" target="_blank">GLEW</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						OpenGL Extension Wrangler Library is a cross-platform open-source C/C++ extension loading
+						library.
+					</p>
+				</article>
+			</div>
+			<div class="row" style="margin-bottom: 100px;">
+				<article class="col-4engine">
+					<a href="https://www.opengl.org/sdk/libs/GLM/" target="_blank" class="image featured"
+						style="height: 300px; object-fit: fill;"><img src="images/engine/glm.png" alt="" /></a>
+					<header>
+						<h3><a href="https://www.opengl.org/sdk/libs/GLM/" target="_blank">GLM</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						It is a header only C++ mathematics library for graphics software based on the OpenGL Shading
+						Language (GLSL) specifications.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://www.mono-project.com/" target="_blank" class="image featured"
+						style="height: 300px; object-fit: fill;"><img src="images/engine/mono.png" alt="" /></a>
+					<header>
+						<h3><a href="https://www.mono-project.com/" target="_blank">Mono</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						An open source implementation of Microsoft's .NET Framework as part of the .NET Foundation and
+						based on the ECMA standards for C# and the Common Language Runtime.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://www.libsdl.org/" target="_blank" class="image featured"
+						style="height: 300px; object-fit: fill;"><img src="images/engine/sdl.png" alt="" /></a>
+					<header>
+						<h3><a href="https://www.libsdl.org/" target="_blank">SDL2</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						Simple DirectMedia Layer is a cross-platform software development library designed to provide a
+						hardware abstraction layer for computer multimedia hardware components.
+					</p>
+				</article>
+			</div>
+			<div class="row" style="margin-bottom: 100px;">
+				<article class="col-4engine">
+					<a href="https://www.dearimgui.com/" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/imgui.png" alt="" /></a>
+					<header>
+						<h3><a href="https://www.dearimgui.com/" target="_blank">ImGui</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						Dear ImGui is a bloat-free graphical user interface library for C++.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://gitee.com/ouyanggao/ImGuizmo" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/imguizmo.jpg" alt="" /></a>
+					<header>
+						<h3><a href="https://gitee.com/ouyanggao/ImGuizmo" target="_blank">ImGuizmo</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						ImGuizmo is a library built with ImGui that allows you to manipulate (rotation & translation)
+						4x4 float matrices.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://github.com/epezent/implot" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/implot.gif" alt="" /></a>
+					<header>
+						<h3><a href="https://github.com/epezent/implot" target="_blank">ImPlot</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						An immediate mode, GPU accelerated plotting library used with ImGui.
+					</p>
+				</article>
+			</div>
+			<div class="row" style="margin-bottom: 100px;">
+				<article class="col-4engine">
+					<a href="https://openil.sourceforge.net/" target="_blank" class="image featured"
+						style="height: 200px; object-fit: fill;"><img src="images/engine/devil.jpg" alt="" /></a>
+					<header>
+						<h3><a href="https://openil.sourceforge.net/" target="_blank">DevIL</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						Developer's Image Library is a programmer's library to develop applications with very powerful
+						image loading capabilities.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://rapidjson.org/" target="_blank" class="image featured"
+						style="height: 200px; object-fit: fill;"><img src="images/engine/rapidjson.png" alt="" /></a>
+					<header>
+						<h3><a href="https://rapidjson.org/" target="_blank">RapidJSON</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						A complete library that allows JSON parsing and generator for C++.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://guillaumeblanc.github.io/ozz-animation/" target="_blank" class="image featured"
+						style="height: 200px; object-fit: fill;"><img src="images/engine/ozz.png" alt="" /></a>
+					<header>
+						<h3><a href="https://guillaumeblanc.github.io/ozz-animation/" target="_blank">Ozz-animation</a>
+						</h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						An open source C++ 3D skeletal animation library. Provides runtime character animation
+						functionalities.
+					</p>
+				</article>
+			</div>
+			<div class="row" style="margin-bottom: 100px;">
+				<article class="col-4engine">
+					<a href="https://www.audiokinetic.com/en/wwise/overview/" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/wwise.png" alt="" /></a>
+					<header>
+						<h3><a href="https://www.audiokinetic.com/en/wwise/overview/" target="_blank">Wwise</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						An Audiokinetic's software for interactive media and video games.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://github.com/nemtrif/utfcpp" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/utfcpp.png" alt="" /></a>
+					<header>
+						<h3><a href="https://github.com/nemtrif/utfcpp" target="_blank">utfcpp & tiff</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						Libraries that handle Unicode encoded strings.
+					</p>
+				</article>
+				<article class="col-4engine">
+					<a href="https://freetype.org/" target="_blank" class="image featured"
+						style="height: 250px; object-fit: fill;"><img src="images/engine/freetype.png" alt="" /></a>
+					<header>
+						<h3><a href="https://freetype.org/" target="_blank">FreeType</a></h3>
+					</header>
+					<p style="color: rgba(255, 255, 255, 0.75);">
+						A freely available software library to render fonts written in C.
 					</p>
 				</article>
 			</div>

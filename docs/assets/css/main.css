@@ -164,10 +164,10 @@ textarea {
 /* Basic */
 
 @font-face {
-    font-family: 'Alien Invader';
-    src: url('../webfonts/fonts/AlienInvader-PKnPm.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Alien Invader';
+	src: url('../webfonts/fonts/AlienInvader-PKnPm.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 html {
@@ -218,7 +218,7 @@ h4,
 h5,
 h6 {
 	font-weight: 400;
-	color: #483949;
+	color: #73bb00;
 	line-height: 1.25em;
 }
 
@@ -1940,6 +1940,15 @@ footer {
 	margin: 0 0 2em 0;
 }
 
+.image.logo {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0 0 2em 0;
+}
+
 .image.left {
 	float: left;
 	margin: 0 2em 2em 0;
@@ -3440,7 +3449,7 @@ body.homepage.is-preload #header:after {
 	/* Carousel */
 
 	.carousel {
-		position:relative;
+		position: relative;
 		overflow: hidden;
 		padding: 2em 0 2em 0;
 		margin-bottom: 0;

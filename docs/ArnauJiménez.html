@@ -111,10 +111,10 @@
                 <div style="display:block; align-items: center; justify-content: center;">
                     <h2 style="font-family: Alien Invader; color: rgb(0, 252, 0); text-align: center; padding-top: 20px;">Project Overview</h2>
                     <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 60px; padding-right: 60px; text-align: center; font-size: 24px; padding-top: 20px;">
-                        In this project, I was responsible for keeping the game Builder working seamlessly. 
-                        I also coded the logic for the Item Manager and developed the behavior and animations for various Also I have been 
-                        working in the Scripting Engine by adding certain Internal Calls in order to be able to do the Enemy Behaviors. And overall, 
-                        I was aiding my colleagues in bug fixing.
+                        In this project I was responsible for the development of the Light Pass shaders and module to 
+                        allow work with lighting in the game, creating Dynamic Shadow Mapping shader implementation. 
+                        I was also involved in the development and implementation of Mono and the Scripting Engine (objects and components structure), 
+                        also worked on Prefabs structure, Scene Manager and general gameplay scripting concepts.
                     </p>
                     <h3 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; font-size: 32px; text-align: center;">
                         Main Tasks
@@ -123,29 +123,47 @@
                         <div class="bio-container" style="width: 800px;
                         position: relative;
                         margin: 40px;">
-                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">TheOneBuilder</h4>
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Light Pass</h4>
                         <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
-                            I created a new project that acted as another entry point for the engine and removed all the editor aspects of TheOneEditor to build the .exe file.
+                            Implementation of Deferred Shading pipeline, allowing to put thousands of lights without too much performance impact
+                        </p>
+                        <img src="images/bio/Arnau/2779262.png" style="object-fit: cover; height:200px;" alt="" />
+                        </div>
+                        <div class="bio-container" style="width: 800px;
+                        position: relative;
+                        margin: 40px;">
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Shadow Mapping</h4>
+                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
+                            Implementation of dynamic shadows pipeline working for Spotlights.
+                        </p>
+                        <img src="images/bio/Arnau/4651819-200.png" style="object-fit: cover; height:200px;" alt="" />
+                        </div>
+                        <div class="bio-container" style="width: 800px;
+                        position: relative;
+                        margin: 40px;">
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Scripting Engine</h4>
+                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
+                            Worked on the design of the Scripts structure, linking and calls of TheOneEngine.
+                        </p>
+                        <img src="images/bio/Jonathan/EnemyBehavior.png" style="object-fit: cover; height:200px;" alt="" />
+                        </div>
+                        <div class="bio-container" style="width: 800px;
+                        position: relative;
+                        margin: 40px;">
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">SceneManager</h4>
+                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
+                            Designed and implemented the module that manages all the scenes in the Engine, Editor and Gameplay
                         </p>
                         <img src="images/engine/TheOneLogo.png" style="object-fit: cover; height:200px;" alt="" />
                         </div>
                         <div class="bio-container" style="width: 800px;
                         position: relative;
                         margin: 40px;">
-                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Item Manager</h4>
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Prefabs</h4>
                         <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
-                            I designed the logic of the ItemManager by creating dictionaries to save the items by unique IDs. 
+                            Designed and started the implementation of the prefabs structure allowing to create predefined GameObjects
                         </p>
-                        <img src="images/bio/Jonathan/ItemManager.png" style="object-fit: cover; height:200px;" alt="" />
-                        </div>
-                        <div class="bio-container" style="width: 800px;
-                        position: relative;
-                        margin: 40px;">
-                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">Enemies Behaviors & Animations</h4>
-                        <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
-                            By following the guidelines given by the design team, I coded all the behaviors for the normal enemies.
-                        </p>
-                        <img src="images/bio/Jonathan/EnemyBehavior.png" style="object-fit: cover; height:200px;" alt="" />
+                        <img src="images/bio/Arnau/cube-icon-logo-5E588A2E6F-seeklogo.com.png" style="object-fit: cover; height:200px;" alt="" />
                         </div>
                     </div>
                 </div>

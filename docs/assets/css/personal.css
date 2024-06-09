@@ -2167,3 +2167,24 @@ article.special>footer {
 .row>article {
   margin-bottom: 0;
 }
+
+.audio-button {
+  width: 100px;
+  height: 100px;
+  margin: 100px;
+  border-radius: 50%;
+  background-color: #48ff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(46, 45, 45);
+  font-size: 48px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.audio-button:hover {
+  background-color: #ecd791;
+  transform: scale(1.1);
+}

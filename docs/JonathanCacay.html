@@ -230,7 +230,66 @@
                     </div>
             </div>
         </div> 
-        <hr>   
+        <hr>
+        <h2 style="font-family: Alien Invader; color: rgb(0, 252, 0); text-align: center; padding-top: 20px; padding-bottom: 40px;">Code Snippets</h2>
+                <div style="display: flex; flex-direction: row; justify-content: space-evenly">
+                    <div style="display: flex; flex-direction: column; align-items: left; justify-content: left; width: 400px;">
+                    <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: left;">
+                        Anarchist Behavior</h4>
+                        <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: left;">
+                            Behavior within the game title, involving state management, detection, animations, & more. 
+                        </p>
+                    </div>
+                    <div id="editor1" class="editor-container"></div>
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-evenly; padding-top: 80px;">
+                    <div id="editor2" class="editor-container"></div>
+                    <div style="display: flex; flex-direction: column; align-items: right; justify-content: right; width: 400px;">
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: right;">
+                            Chestburster Behavior</h4>
+                            <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: right;">Behavior within the game title, involving state management, detection, animations, & more. </p>
+                        </div>
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-evenly; padding-top: 80px;">
+                    <div style="display: flex; flex-direction: column; align-items: left; justify-content: left; width: 400px;">
+                    <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: left;">
+                        Facehugger Behavior</h4>
+                        <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: left;">
+                            Behavior within the game title, involving state management, detection, animations, & more. 
+                        </p>
+                    </div>
+                    <div id="editor3" class="editor-container"></div>
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-evenly; padding-top: 80px;">
+                    <div id="editor4" class="editor-container"></div>
+                    <div style="display: flex; flex-direction: column; align-items: right; justify-content: right; width: 400px;">
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: right;">
+                            Adult Xenomorph Behavior</h4>
+                            <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: right;">
+                                Behavior within the game title, involving state management, detection, animations, & more. 
+                            </p>
+                        </div>
+                </div>  
+                <div style="display: flex; flex-direction: row; justify-content: space-evenly; padding-top: 80px;">
+                    <div style="display: flex; flex-direction: column; align-items: left; justify-content: left; width: 400px;">
+                    <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: left;">
+                        Red Xenomorph Behavior</h4>
+                        <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: left;">
+                            Behavior within the game title, involving state management, detection, animations, & more. 
+                        </p>
+                    </div>
+                    <div id="editor5" class="editor-container"></div>
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-evenly; padding-top: 80px;">
+                    <div id="editor6" class="editor-container"></div>
+                    <div style="display: flex; flex-direction: column; align-items: right; justify-content: right; width: 400px;">
+                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: right;">
+                            White Xenomorph Behavior</h4>
+                            <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: right;">
+                                Behavior within the game title, involving state management, detection, animations, & more. 
+                            </p>
+                        </div>
+                </div>    
         
         
             
@@ -404,137 +463,1980 @@
         // Initialize editors
         function initializeEditors() {
         // Editor 1
-        createEditor('editor1', `
-//------------------------
-// Smol CRT Shader ~hekbas
-//------------------------
+        createEditor('editor1', `using System;
 
-#version 450 core
-precision highp float;
-uniform sampler2D albedo;
-uniform vec2 warp;
-uniform float time;
-
-in vec2 fragCoord;
-layout(location = 1) out vec4 fragColor;
-
-vec2 kWarp = vec2(1.0 / warp.x, 1.0 / warp.y);
-
-vec2 WarpUV(vec2 uv)
+class AnarchistBehaviour : MonoBehaviour
 {
-    uv = uv * 2.0 - 1.0;
-    uv *= vec2(
-        1.0 + (uv.y * uv.y) * kWarp.x,
-        1.0 + (uv.x * uv.x) * kWarp.y
-    );
-    return uv * 0.5 + 0.5;
-}
-
-void DrawVignette(inout vec3 color, vec2 uv)
-{
-    float vignette = uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y);
-    vignette = clamp(pow(16.0 * vignette, 0.3), 0.0, 1.0);
-    color *= vignette;
-}
-
-void DrawScanLine(inout vec3 color, vec2 uv)
-{
-    float scanline = clamp(0.95 + 0.05 * cos(3.14 * (uv.y + 0.008 * time) * 240.0 * 1.0), 0.0, 1.0);
-    float grille = 0.85 + 0.15 * clamp(1.5 * cos(3.14 * uv.x * 640.0 * 1.0), 0.0, 1.0);
-    color *= scanline * grille * 1.2;
-}
-
-void main()
-{
-    vec2 uv = fragCoord.xy;
-    vec2 crtUV = WarpUV(uv);
-
-    vec3 color = texture(albedo, crtUV).rgb;
-
-    if(crtUV.x < 0.0 || crtUV.x > 1.0 || crtUV.y < 0.0 || crtUV.y > 1.0)
+    enum States
     {
-        color = vec3(0.0, 0.0, 0.0);
+        Patrol,
+        Inspect,
+        Attack,
+        Dead
     }
 
-    DrawVignette(color, crtUV);
+    enum InspctStates
+    {
+        Going,
+        Inspecting,
+        ComingBack
+    }
 
-    DrawScanLine(color, crtUV);
+    IGameObject playerGO;
+    float playerDistance;
 
-    fragColor.xyz = color;
-    fragColor.w = 1.0;
+    // Anarchist parameters
+    float life = 100.0f;
+    float biomass = 15.0f;
+    float movementSpeed = 13.0f * 3;
+    States currentState = States.Patrol;
+    States lastState = States.Patrol;
+    Vector3 initialPos;
+
+    // Ranges
+    const float rangeToInspect = 200.0f;
+    const float inspectDetectionRadius = 100.0f;
+    const float loseRange = 150.0f;
+
+    // Inspect
+    float elapsedTime = 0.0f; //Do not modify
+    const float maxInspectTime = 5.0f;
+    InspctStates currentSubstate = InspctStates.Going;
+    Vector3 playerLastPosition;
+
+    // Attack
+    bool shooting = false;
+    float timerBetweenBursts = 0.0f; //Do not modify
+    const float timeBetweenBursts = 0.5f;
+    float timerBetweenBullets = 0.0f; //Do not modify
+    const float timeBetweenBullets = 0.05f;
+    int bulletCounter = 0; //Do not modify
+    const int burstBulletCount = 3;
+
+    // Patrol
+    const float patrolRange = 100.0f;
+    const float patrolSpeed = 30.0f;
+    float roundProgress = 0.0f; //Do not modify
+    bool goingToRoundPos = false;
+
+    // Flags
+    bool isDead = false;
+
+    // Timers
+    float destroyTimer = 0.0f;
+    const float destroyCooldown = 3.0f;
+
+    PlayerScript player;
+    GameManager gameManager;
+
+    public override void Start()
+    {
+        playerGO = IGameObject.Find("SK_MainCharacter");
+        player = playerGO.GetComponent<PlayerScript>();
+        initialPos = attachedGameObject.transform.Position;
+
+        gameManager = IGameObject.Find("GameManager").GetComponent<GameManager>();
+
+        attachedGameObject.animator.Play("Scan");
+        attachedGameObject.animator.Blend = true;
+        attachedGameObject.animator.TransitionTime = 0.3f;
+    }
+
+    public override void Update()
+    {
+        attachedGameObject.animator.UpdateAnimation();
+
+        if (currentState == States.Dead)
+        {
+            //destroyTimer += Time.deltaTime;
+            //if (destroyTimer >= destroyCooldown)
+            //    attachedGameObject.Destroy();
+
+            return;
+        }
+
+        if (attachedGameObject.transform.ComponentCheck())
+        {
+            DebugDraw();
+
+            playerDistance = Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position);
+
+            UpdateFSMStates();
+            DoStateBehaviour();
+        }
+    }
+
+    void UpdateFSMStates()
+    {
+        if (life <= 0)
+        {
+            currentState = States.Dead;
+            return;
+        }
+
+        if (playerDistance < rangeToInspect && lastState != States.Inspect)
+        {
+            currentState = States.Inspect;
+            //Debug.Log("Switching state to Inspect");
+        }
+    }
+
+    void DoStateBehaviour()
+    {
+        switch (currentState)
+        {
+            case States.Patrol:
+                Patrol();
+                break;
+            case States.Inspect:
+                Inspect();
+                break;
+            case States.Attack:
+                player.isFighting = true;
+                Attack();
+                break;
+            case States.Dead:
+                Dead();
+                break;
+            default:
+                break;
+        }
+    }
+
+    void Patrol()
+    {
+        attachedGameObject.animator.Play("Walk");
+
+        if (currentState != lastState)
+        {
+            lastState = currentState;
+            goingToRoundPos = true;
+        }
+
+        roundProgress += Time.deltaTime * patrolSpeed;
+        if (roundProgress > 360.0f) roundProgress -= 360.0f;
+
+        Vector3 roundPos = initialPos +
+                           Vector3.right * (float)Math.Cos(roundProgress * Math.PI / 180.0f) * patrolRange +
+                           Vector3.forward * (float)Math.Sin(roundProgress * Math.PI / 180.0f) * patrolRange;
+
+        attachedGameObject.transform.LookAt2D(roundPos);
+
+        if (!goingToRoundPos)
+        {
+            MoveTo(roundPos);
+        }
+        else
+        {
+            goingToRoundPos = !MoveTo(roundPos);
+        }
+    }
+
+    void Attack()
+    {
+        attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+
+        if (playerDistance > loseRange)
+        {
+            currentState = States.Inspect;
+            currentSubstate = InspctStates.ComingBack;
+        }
+
+        if (!shooting)
+        {
+            timerBetweenBursts += Time.deltaTime;
+            if (timerBetweenBursts > timeBetweenBursts)
+            {
+                timerBetweenBursts = 0.0f;
+                shooting = true;
+            }
+        }
+        else
+        {
+            timerBetweenBullets += Time.deltaTime;
+            if (timerBetweenBullets > timeBetweenBullets)
+            {
+                attachedGameObject.animator.Play("Shoot");
+                Vector3 height = new Vector3(0.0f, 30.0f, 0.0f);
+                InternalCalls.InstantiateBullet(attachedGameObject.transform.Position + attachedGameObject.transform.Forward * 13.5f + height, attachedGameObject.transform.Rotation);
+                timerBetweenBullets = 0.0f;
+                bulletCounter++;
+                attachedGameObject.source.Play(IAudioSource.AudioEvent.E_A_SHOOT);
+            }
+
+            if (bulletCounter >= burstBulletCount)
+            {
+                bulletCounter = 0;
+                shooting = false;
+            }
+        }
+
+
+    }
+
+    void Inspect()
+    {
+        if (currentState != lastState)
+        {
+            //Debug.Log("Anarchist starting state");
+            lastState = currentState;
+            playerLastPosition = playerGO.transform.Position;
+        }
+
+        switch (currentSubstate)
+        {
+            case InspctStates.Going:
+                attachedGameObject.animator.Play("Walk");
+                if (MoveTo(playerLastPosition))
+                {
+                    currentSubstate = InspctStates.Inspecting;
+                }
+                attachedGameObject.transform.LookAt2D(playerLastPosition);
+                break;
+            case InspctStates.Inspecting:
+                attachedGameObject.animator.Play("Scan");
+                elapsedTime += Time.deltaTime;
+                if (elapsedTime > maxInspectTime)
+                {
+                    elapsedTime = 0.0f;
+                    currentSubstate = InspctStates.ComingBack;
+                }
+                break;
+            case InspctStates.ComingBack:
+                attachedGameObject.animator.Play("Walk");
+                if (MoveTo(initialPos))
+                {
+                    currentSubstate = InspctStates.Going;
+                    currentState = States.Patrol;
+                }
+                attachedGameObject.transform.LookAt2D(initialPos);
+                break;
+            default:
+                break;
+        }
+
+        Vector3 directorVec = (attachedGameObject.transform.Position - playerGO.transform.Position).Normalize();
+        float dot = Vector3.Dot(attachedGameObject.transform.Forward, directorVec);
+
+        if (playerDistance < inspectDetectionRadius && dot > 0.7f)
+        {
+            currentState = States.Attack;
+        }
+    }
+
+    void Dead()
+    {
+        if (!isDead)
+        {
+            attachedGameObject.animator.Play("Death");
+            isDead = true;
+            player.shieldKillCounter++;
+            // add player biomass
+        }
+    }
+
+    bool MoveTo(Vector3 targetPosition)
+    {
+        //Return true if arrived at destination
+        if (Vector3.Distance(attachedGameObject.transform.Position, targetPosition) < 0.5f) return true;
+
+        Vector3 dirVector = (targetPosition - attachedGameObject.transform.Position).Normalize();
+        attachedGameObject.transform.Translate(dirVector * movementSpeed * Time.deltaTime);
+        return false;
+    }
+
+    public void ReduceLife() //temporary function for the hardcoding of collisions
+    {
+        life -= player.totalDamage;
+        if (life < 0) life = 0;
+    }
+
+    public void ReduceLifeExplosion()
+    {
+        life -= player.GrenadeLauncher.damage;
+        if (life < 0) life = 0;
+    }
+
+    private void DebugDraw()
+    {
+        if (gameManager.colliderRender)
+        {
+            Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 3, loseRange, Vector3.right);
+            Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 3, rangeToInspect, Vector3.right + Vector3.up);
+
+            switch (currentSubstate)
+            {
+                case InspctStates.Going:
+                    Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 3, inspectDetectionRadius, Vector3.right + Vector3.up * 0.3f);
+                    break;
+                case InspctStates.Inspecting:
+                    Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 3, inspectDetectionRadius, Vector3.right + Vector3.up * 0.5f);
+                    break;
+                case InspctStates.ComingBack:
+                    Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 3, inspectDetectionRadius, Vector3.right + Vector3.up * 0.8f);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }
-
 `, 'cpp');
 
         // Editor 2
-        createEditor('editor2', `#include <vector>
-#version 450 core
-precision highp float;
+        createEditor('editor2', `﻿using System;
 
-uniform sampler2D albedo;
-uniform vec2 warp;
-uniform float time;
-
-in vec2 fragCoord;
-layout(location = 1) out vec4 fragColor;
-
-vec2 kWarp = vec2(1.0 / warp.x, 1.0 / warp.y);
-
-vec2 WarpUV(vec2 uv)
+public class ChestbursterBehaviour : MonoBehaviour
 {
-    uv = uv * 2.0 - 1.0;
-    uv *= vec2(
-        1.0 + (uv.y * uv.y) * kWarp.x,
-        1.0 + (uv.x * uv.x) * kWarp.y
-    );
-    return uv * 0.5 + 0.5;
-}
-
-void DrawVignette(inout vec3 color, vec2 uv)
-{
-    float vignette = uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y);
-    vignette = clamp(pow(16.0 * vignette, 0.3), 0.0, 1.0);
-    color *= vignette;
-}
-
-void DrawScanLine(inout vec3 color, vec2 uv)
-{
-    float scanline = clamp(0.95 + 0.05 * cos(3.14 * (uv.y + 0.008 * time) * 240.0 * 1.0), 0.0, 1.0);
-    float grille = 0.85 + 0.15 * clamp(1.5 * cos(3.14 * uv.x * 640.0 * 1.0), 0.0, 1.0);
-    color *= scanline * grille * 1.2;
-}
-
-void main()
-{
-    vec2 uv = fragCoord.xy;
-    vec2 crtUV = WarpUV(uv);
-
-    vec3 color = texture(albedo, crtUV).rgb;
-
-    if(crtUV.x < 0.0 || crtUV.x > 1.0 || crtUV.y < 0.0 || crtUV.y > 1.0)
+    enum States
     {
-        color = vec3(0.0, 0.0, 0.0);
+        Idle,
+        Chase,
+        Attack,
+        Dead
     }
 
-    DrawVignette(color, crtUV);
+    private enum ChestbursterAttack
+    {
+        None,
+        TailPunch,
+        TailTrip
+    }
 
-    DrawScanLine(color, crtUV);
+    IGameObject playerGO;
+    Vector3 directorVector;
+    float playerDistance;
 
-    fragColor.xyz = color;
-    fragColor.w = 1.0;
-}
+    // Chestburster parameters
+    float life = 80.0f;
+    float biomass = 10.0f;
+    float movementSpeed = 30.0f * 2;
+    States currentState = States.Idle;
+    ChestbursterAttack currentAttack = ChestbursterAttack.None;
 
+    // Ranges
+    const float detectedRange = 35.0f * 1.5f;
+    const float isCloseRange = 60.0f;
+    const float maxChasingRange = 150.0f;
+    const float maxRangeStopChasing = 25.0f;
+
+    // Flags
+    bool isClose = false;
+    bool detected = false;
+    bool isDead = false;
+
+    // Timers
+    float attackTimer = 0.0f;
+    const float attackCooldown = 4.0f;
+    float destroyTimer = 0.0f;
+    const float destroyCooldown = 3.0f;
+
+    PlayerScript player;
+    GameManager gameManager;
+
+    // Particles
+    IParticleSystem tailPunchPSGO;
+    IParticleSystem tailTripPSGO;
+    IParticleSystem deathPSGO;
+
+    public override void Start()
+    {
+        playerGO = IGameObject.Find("SK_MainCharacter");
+        player = playerGO.GetComponent<PlayerScript>();
+
+        gameManager = IGameObject.Find("GameManager").GetComponent<GameManager>();
+
+        attachedGameObject.animator.Play("Move");
+        attachedGameObject.animator.Blend = true;
+        attachedGameObject.animator.TransitionTime = 0.3f;
+
+        tailPunchPSGO = attachedGameObject.FindInChildren("TailPunchPS")?.GetComponent<IParticleSystem>();
+        tailTripPSGO = attachedGameObject.FindInChildren("TailTripPS")?.GetComponent<IParticleSystem>();
+        deathPSGO = attachedGameObject.FindInChildren("DeathPS")?.GetComponent<IParticleSystem>();
+    }
+
+    public override void Update()
+    {
+        attachedGameObject.animator.UpdateAnimation();
+
+        if (currentState == States.Dead)
+        {
+            //destroyTimer += Time.deltaTime;
+            //if (destroyTimer >= destroyCooldown)
+            //    attachedGameObject.Destroy();
+
+            return;
+        }
+
+        if (attachedGameObject.transform.ComponentCheck())
+        {
+            DebugDraw();
+
+            directorVector = (playerGO.transform.Position - attachedGameObject.transform.Position).Normalize();
+            playerDistance = Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position);
+
+            UpdateFSM();
+            DoStateBehaviour();
+        }
+    }
+
+    void UpdateFSM()
+    {
+        if (life <= 0)
+        {
+            currentState = States.Dead;
+            //Debug.Log("Chestburster switched to Dead");
+            return;
+        }
+
+        if (!detected && playerDistance < detectedRange)
+        {
+            detected = true;
+            currentState = States.Chase;
+            //Debug.Log("Chestburster switched to Chase");
+        }
+
+        if (detected)
+        {
+            CheckIsClose();
+
+            if (currentAttack == ChestbursterAttack.None)
+            {
+                attackTimer += Time.deltaTime;
+                attachedGameObject.animator.Play("Run");
+            }
+
+            CheckIsMaxRangeStopChasing();
+
+            if (currentAttack == ChestbursterAttack.None && attackTimer >= attackCooldown)
+            {
+                currentState = States.Attack;
+                //Debug.Log("Chestburster switched to Attack");
+            }
+
+            if (playerDistance > maxChasingRange && currentState != States.Attack)
+            {
+                detected = false;
+                currentState = States.Idle;
+                //Debug.Log("Chestburster switched to Idle");
+            }
+        }
+    }
+
+    private void CheckIsClose()
+    {
+        if (playerDistance < isCloseRange && !isClose)
+        {
+            isClose = true;
+            //Debug.Log("Player is now CLOSE");
+        }
+
+        if (playerDistance >= isCloseRange && isClose)
+        {
+            isClose = false;
+            //Debug.Log("Player is now FAR");
+        }
+    }
+
+    private void CheckIsMaxRangeStopChasing()
+    {
+        if (playerDistance <= maxRangeStopChasing && currentAttack == ChestbursterAttack.None &&
+               currentState != States.Idle)
+        {
+            currentState = States.Idle;
+            //Debug.Log("Player is INSIDE maxRangeStopChasing");
+        }
+
+        if (playerDistance > maxRangeStopChasing && currentAttack == ChestbursterAttack.None &&
+            currentState != States.Chase)
+        {
+            currentState = States.Chase;
+            //Debug.Log("Player is OUTSIDE maxRangeStopChasing");
+        }
+    }
+
+    void DoStateBehaviour()
+    {
+        switch (currentState)
+        {
+            case States.Idle:
+                if (currentAttack == ChestbursterAttack.None && detected)
+                    attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+
+                break;
+            case States.Chase:
+                player.isFighting = true;
+                attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * movementSpeed * Time.deltaTime);
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                break;
+            case States.Attack:
+                player.isFighting = true;
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                ChooseAttack();
+                switch (currentAttack)
+                {
+                    case ChestbursterAttack.TailPunch:
+                        TailPunch();
+                        break;
+                    case ChestbursterAttack.TailTrip:
+                        TailTrip();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case States.Dead:
+                Dead();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ChooseAttack()
+    {
+        if (currentAttack == ChestbursterAttack.None)
+        {
+            if (isClose)
+            {
+                currentAttack = ChestbursterAttack.TailPunch;
+                attachedGameObject.animator.Play("TailPunch");
+                tailPunchPSGO.Play();
+            }
+            else
+            {
+                currentAttack = ChestbursterAttack.TailTrip;
+                attachedGameObject.animator.Play("TailTrip");
+                tailTripPSGO.Play();
+            }
+            //Debug.Log("Chestburster current attack: " + currentAttack);
+        }
+    }
+
+    private void TailPunch()
+    {
+        //Debug.Log("Attempt to do TailPunch");
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            ResetState();
+        }
+
+    }
+
+    private void TailTrip()
+    {
+        //Debug.Log("Attempt to do TailTrip");
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            ResetState();
+        }
+
+    }
+
+    private void Dead()
+    {
+        if (!isDead)
+        {
+            attachedGameObject.animator.Play("Die");
+
+            isDead = true;
+            player.shieldKillCounter++;
+            // add player biomass
+            deathPSGO.Play();
+        }
+    }
+
+    private void ResetState()
+    {
+        //Debug.Log("Reset State");
+        attackTimer = 0.0f;
+        currentAttack = ChestbursterAttack.None;
+        currentState = States.Chase;
+        attachedGameObject.animator.Play("Run");
+    }
+
+    public void ReduceLife() //temporary function for the hardcoding of collisions
+    {
+        life -= player.totalDamage;
+        if (life < 0) life = 0;
+        Debug.Log("Chestburster health: " + life.ToString());
+    }
+
+    public void ReduceLifeExplosion()
+    {
+        life -= player.GrenadeLauncher.damage;
+        if (life < 0) life = 0;
+    }
+
+    private void DebugDraw()
+    {
+        //Draw debug ranges
+        if (gameManager.colliderRender)
+        {
+            if (!detected)
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, detectedRange, new Vector3(1.0f, 0.8f, 0.0f)); //Yellow
+            }
+            else
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, maxChasingRange, new Vector3(0.9f, 0.0f, 0.9f)); //Purple
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, isCloseRange, new Vector3(0.0f, 0.8f, 1.0f)); //Blue
+            }
+        }
+    }
 }`, 'cpp');
 
         // Editor 3
-        createEditor('editor3', `#include <string>
-using namespace std;
+        createEditor('editor3', `﻿using System;
 
-int main() {
-    string str = "Hello, World!";
-    cout << str.length() << endl;
-    return 0;
-}`, 'cpp'); }
+public class FaceHuggerBehaviour : MonoBehaviour
+{
+    enum States
+    {
+        Idle,
+        Chase,
+        JumpAttack,
+        Hug,
+        Land,
+        Dead
+    }
+
+    IGameObject playerGO;
+    Vector3 directorVector;
+    float playerDistance;
+
+    // Facehugger parameters
+    float life = 40.0f;
+    float biomass = 10.0f;
+    float movementSpeed = 35.0f * 2;
+    States currentState = States.Idle;
+
+    // Ranges
+    const float detectedRange = 180.0f;
+    const float maxAttackRange = 90.0f;
+    const float maxChasingRange = 180.0f;
+    const float maxRangeStopChasing = 60.0f;
+
+    // Flags
+    bool detected = false;
+    bool hitPlayer = false;
+    bool isDead = false;
+    bool isJumping = false;
+    bool isHugging = false;
+    bool isLanding = false;
+    bool fallDead = false;
+    bool shotDead = false;
+
+    // Timers
+    float jumpAttackTimer = 0.0f;
+    const float jumpAttackCooldown = 3.0f;
+
+    PlayerScript player;
+    GameManager gameManager;
+
+    IParticleSystem jumpPS;
+    IParticleSystem deathPS;
+
+    public override void Start()
+    {
+        playerGO = IGameObject.Find("SK_MainCharacter");
+        player = playerGO.GetComponent<PlayerScript>();
+
+        gameManager = IGameObject.Find("GameManager").GetComponent<GameManager>();
+
+        attachedGameObject.animator.Play("Idle");
+        attachedGameObject.animator.Blend = true;
+        attachedGameObject.animator.TransitionTime = 0.3f;
+
+        jumpPS = attachedGameObject.FindInChildren("JumpPS")?.GetComponent<IParticleSystem>();
+        deathPS = attachedGameObject.FindInChildren("DeathPS")?.GetComponent<IParticleSystem>();
+    }
+
+    public override void Update()
+    {
+        attachedGameObject.animator.UpdateAnimation();
+
+        if (currentState == States.Dead) return;
+
+        if (attachedGameObject.transform.ComponentCheck())
+        {
+            DebugDraw();
+
+            // Set the director vector and distance to the player
+            directorVector = (playerGO.transform.Position - attachedGameObject.transform.Position).Normalize();
+            playerDistance = Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position);
+
+            UpdateFSM();
+            DoStateBehaviour();
+        }
+    }
+
+    void UpdateFSM()
+    {
+        if (life <= 0 || fallDead)
+        {
+            if (attachedGameObject.animator.CurrentAnimHasFinished || shotDead)
+                currentState = States.Dead;
+            //Debug.Log("Facehugger switched to Dead");
+            return;
+        }
+
+        if (!detected && playerDistance < detectedRange)
+        {
+            detected = true;
+            currentState = States.Chase;
+            //Debug.Log("Facehugger switched to Chase");
+        }
+
+        if (detected)
+        {
+            if (currentState != States.JumpAttack &&
+                currentState != States.Hug && currentState != States.Land)
+            {
+                jumpAttackTimer += Time.deltaTime;
+                if (currentState != States.Idle)
+                    attachedGameObject.animator.Play("Walk");
+            }
+
+            CheckIsMaxRangeStopChasing();
+
+            if (jumpAttackTimer >= jumpAttackCooldown && currentState != States.JumpAttack)
+            {
+                currentState = States.JumpAttack;
+                //Debug.Log("Facehugger switched to JumpAttack");
+            }
+
+            if (playerDistance > maxChasingRange && currentState != States.JumpAttack &&
+                currentState != States.Hug && currentState != States.Land)
+            {
+                detected = false;
+                currentState = States.Idle;
+                //Debug.Log("Facehugger switched to Idle");
+            }
+        }
+    }
+
+    private void CheckIsMaxRangeStopChasing()
+    {
+        if (playerDistance <= maxRangeStopChasing && currentState != States.Idle)
+        {
+            currentState = States.Idle;
+            //Debug.Log("Player is INSIDE maxRangeStopChasing");
+        }
+        else if (playerDistance > maxRangeStopChasing && currentState != States.Chase &&
+                 currentState != States.Hug)
+        {
+
+            currentState = States.Chase;
+            //Debug.Log("Player is OUTSIDE maxRangeStopChasing");
+        }
+    }
+
+    void DoStateBehaviour()
+    {
+        switch (currentState)
+        {
+            case States.Idle:
+                attachedGameObject.animator.Play("Idle");
+                return;
+            case States.Chase:
+                player.isFighting = true;
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * movementSpeed * Time.deltaTime);
+                break;
+            case States.JumpAttack:
+                player.isFighting = true;
+                attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * movementSpeed * Time.deltaTime);
+                JumpAttack();
+                break;
+            case States.Hug:
+                Hug();
+                break;
+            case States.Land:
+                Land();
+                break;
+            case States.Dead:
+                Dead();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void JumpAttack()
+    {
+        if (!isJumping)
+        {
+            isJumping = true;
+            attachedGameObject.animator.Play("Jump");
+            if (jumpPS != null) jumpPS.Replay();
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            CheckIsHugging();
+        }
+    }
+
+    private void CheckIsHugging()
+    {
+        jumpAttackTimer = 0.0f;
+        isJumping = false;
+        if (hitPlayer)
+        {
+            currentState = States.Hug;
+        }
+        else
+        {
+            currentState = States.Land;
+        }
+    }
+
+    private void Hug()
+    {
+        if (!isHugging)
+        {
+            attachedGameObject.animator.Play("Hug");
+            isHugging = true;
+        }
+
+        fallDead = true;
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            isHugging = false;
+            fallDead = true;
+        }
+    }
+
+    private void Land()
+    {
+        if (!isLanding)
+        {
+            attachedGameObject.animator.Play("Land");
+            isLanding = true;
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            currentState = States.Chase;
+            isLanding = false;
+        }
+    }
+
+    private void Dead()
+    {
+        if (!isDead)
+        {
+            if (fallDead) attachedGameObject.animator.Play("FallAndDie");
+
+            if (shotDead) attachedGameObject.animator.Play("ShotAndDie");
+
+            isDead = true;
+            player.shieldKillCounter++;
+            // add player biomass
+            if (deathPS != null) deathPS.Replay(); // this will crash if no particles are found
+        }
+    }
+
+    public void CheckJump() //temporary function for the hardcoding of collisions
+    {
+        if (!hitPlayer)
+        {
+            if (isJumping)
+            {
+                playerGO.GetComponent<PlayerScript>().ReduceLife(10);
+                hitPlayer = true;
+                fallDead = true;
+            }
+        }
+    }
+
+    public void ReduceLife() //temporary function for the hardcoding of collisions
+    {
+        life -= player.totalDamage;
+        if (life < 0)
+        {
+            life = 0;
+            shotDead = true;
+        }
+    }
+
+    private void DebugDraw()
+    {
+        //Draw debug ranges
+        if (gameManager.colliderRender)
+        {
+            if (!detected)
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, detectedRange, new Vector3(1.0f, 0.8f, 0.0f)); //Yellow
+            }
+            else
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, maxChasingRange, new Vector3(0.9f, 0.0f, 0.9f)); //Purple
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, maxAttackRange, new Vector3(0.0f, 0.8f, 1.0f)); //Blue
+            }
+        }
+    }
+}`, 'cpp');
+
+// Editor 4
+createEditor('editor4', `﻿using System;
+
+public class AdultXenomorphBehaviour : MonoBehaviour
+{
+    enum States
+    {
+        Idle,
+        Attack,
+        Chase,
+        Patrol,
+        Dead
+    }
+
+    private enum AdultXenomorphAttacks
+    {
+        None,
+        AcidSpit,
+        TailAttack
+    }
+
+    IGameObject playerGO;
+    Vector3 directorVector;
+    float playerDistance;
+
+    // Adult Xenomorph parameters
+    float life = 200.0f;
+    float biomass = 20.0f;
+    float movementSpeed = 18.0f * 3;
+    
+    States currentState = States.Idle;
+    States lastState = States.Idle;
+    AdultXenomorphAttacks currentAttack = AdultXenomorphAttacks.None;
+    Vector3 initialPos;
+
+    // Patrol
+    readonly float patrolRange = 100;
+    readonly float patrolSpeed = 20.0f;
+    float roundProgress = 0.0f; //Do not modify
+    bool goingToRoundPos = false;
+
+    // Ranges
+    const float detectedRange = 180.0f;
+    const float isCloseRange = 20.0f * 3;
+    const float maxChasingRange = 180.0f;
+    const float maxRangeStopChasing = 25.0f;
+
+    // Flags
+    bool detected = false;
+    bool isClose = false;
+    bool isDead = false;
+    bool hasShot = false;
+
+    // Timers
+    float attackTimer = 0.0f;
+    const float attackCooldown = 2.0f;
+    float destroyTimer = 0.0f;
+    const float destroyCooldown = 3.0f;
+    float delayTimer = 0.0f;
+    const float delayCooldown = 1.2f;
+
+    PlayerScript player;
+    GameManager gameManager;
+
+    // Particles
+    IParticleSystem acidSpitPSGO;
+    IParticleSystem tailAttackPSGO;
+    IParticleSystem deathPSGO;
+
+    public override void Start()
+    {
+        playerGO = IGameObject.Find("SK_MainCharacter");
+        player = playerGO.GetComponent<PlayerScript>();
+        initialPos = attachedGameObject.transform.Position;
+
+        gameManager = IGameObject.Find("GameManager").GetComponent<GameManager>();
+
+        attachedGameObject.animator.Play("Walk");
+        attachedGameObject.animator.Blend = true;
+        attachedGameObject.animator.TransitionTime = 0.3f;
+
+        acidSpitPSGO = attachedGameObject.FindInChildren("AcidSpitPS")?.GetComponent<IParticleSystem>();
+        tailAttackPSGO = attachedGameObject.FindInChildren("TailAttackPS")?.GetComponent<IParticleSystem>();
+        deathPSGO = attachedGameObject.FindInChildren("DeathPS")?.GetComponent<IParticleSystem>();
+    }
+
+    public override void Update()
+    {
+        attachedGameObject.animator.UpdateAnimation();
+
+        if (currentState == States.Dead)
+        {
+            //destroyTimer += Time.deltaTime;
+            //if (destroyTimer >= destroyCooldown)
+            //    attachedGameObject.Destroy();
+
+            return;
+        }
+
+        if (attachedGameObject.transform.ComponentCheck())
+        {
+            DebugDraw();
+
+            //Set the director vector and distance to the player
+            directorVector = (playerGO.transform.Position - attachedGameObject.transform.Position).Normalize();
+            playerDistance = Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position);
+
+            UpdateFSM();
+            DoStateBehaviour();
+        }
+    }
+
+    void UpdateFSM()
+    {
+        if (life <= 0)
+        {
+            currentState = States.Dead;
+            return;
+        }
+
+        if (!detected && playerDistance < detectedRange)
+        {
+            detected = true;
+            currentState = States.Chase;
+            //Debug.Log("Adult Xenomorph switched to Chase");
+        }
+
+        if (detected)
+        {
+            CheckIsClose();
+
+            if (currentAttack == AdultXenomorphAttacks.None)
+            {
+                attackTimer += Time.deltaTime;
+                attachedGameObject.animator.Play("Walk");
+            }
+
+            CheckIsMaxRangeStopChasing();
+
+            if (currentAttack == AdultXenomorphAttacks.None && attackTimer >= attackCooldown)
+            {
+                currentState = States.Attack;
+                //Debug.Log("Adult Xenomorph switched to Attack");
+            }
+
+            if (playerDistance > maxChasingRange && currentState != States.Attack)
+            {
+                detected = false;
+                currentState = States.Patrol;
+                //Debug.Log("Adult Xenomorph switched to Patrol");
+            }
+        }
+    }
+
+    private void CheckIsClose()
+    {
+        if (playerDistance < isCloseRange && !isClose)
+        {
+            isClose = true;
+            //Debug.Log("Player is now CLOSE");
+        }
+        else if (playerDistance >= isCloseRange && isClose)
+        {
+            isClose = false;
+            //Debug.Log("Player is now FAR");
+        }
+    }
+
+    private void CheckIsMaxRangeStopChasing()
+    {
+        if (playerDistance <= maxRangeStopChasing && currentAttack == AdultXenomorphAttacks.None &&
+            currentState != States.Idle)
+        {
+            currentState = States.Idle;
+            //Debug.Log("Player is INSIDE maxRangeStopChasing");
+        }
+        else if (playerDistance > maxRangeStopChasing && currentAttack == AdultXenomorphAttacks.None &&
+                 currentState != States.Chase)
+        {
+            currentState = States.Chase;
+            //Debug.Log("Player is OUTSIDE maxRangeStopChasing");
+        }
+    }
+
+    private void DoStateBehaviour()
+    {
+        switch (currentState)
+        {
+            case States.Idle:
+                return;
+            case States.Attack:
+                player.isFighting = true;
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                ChooseAttack();
+                switch (currentAttack)
+                {
+                    case AdultXenomorphAttacks.AcidSpit:
+                        AcidSpit();
+                        break;
+                    case AdultXenomorphAttacks.TailAttack:
+                        TailAttack();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case States.Chase:
+                player.isFighting = true;
+                attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * movementSpeed * Time.deltaTime);
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                break;
+            case States.Patrol:
+                Patrol();
+                break;
+            case States.Dead:
+                Dead();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ChooseAttack()
+    {
+        if (currentAttack == AdultXenomorphAttacks.None)
+        {
+            if (isClose)
+            {
+                currentAttack = AdultXenomorphAttacks.TailAttack;
+                attachedGameObject.animator.Play("TailAttack");
+                tailAttackPSGO.Play();
+            }
+            else
+            {
+                currentAttack = AdultXenomorphAttacks.AcidSpit;
+                attachedGameObject.animator.Play("Spit");
+                acidSpitPSGO.Play();
+            }
+            //Debug.Log("AdultXenomorph current attack: " + currentAttack);
+        }
+    }
+
+    private void AcidSpit()
+    {
+        delayTimer += Time.deltaTime;
+
+        if (!hasShot && delayTimer >= delayCooldown)
+        {
+            hasShot = true;
+            Vector3 height = new Vector3(0.0f, 38.0f, 0.0f);
+            InternalCalls.InstantiateBullet(attachedGameObject.transform.Position + attachedGameObject.transform.Forward * 13.5f + height, attachedGameObject.transform.Rotation);
+            // SFX Goes here
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            hasShot = false;
+            delayTimer = 0.0f;
+            ResetState();
+        }
+    }
+
+    private void TailAttack()
+    {
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            ResetState();
+        }
+    }
+
+    private void Patrol()
+    {
+        attachedGameObject.animator.Play("Walk");
+
+        if (currentState != lastState)
+        {
+            lastState = currentState;
+            goingToRoundPos = true;
+        }
+
+        roundProgress += Time.deltaTime * patrolSpeed;
+        if (roundProgress > 360.0f) roundProgress -= 360.0f;
+
+        Vector3 roundPos = initialPos +
+                           Vector3.right * (float)Math.Cos(roundProgress * Math.PI / 180.0f) * patrolRange +
+                           Vector3.forward * (float)Math.Sin(roundProgress * Math.PI / 180.0f) * patrolRange;
+
+        attachedGameObject.transform.LookAt2D(roundPos);
+        if (!goingToRoundPos)
+        {
+            MoveTo(roundPos);
+        }
+        else
+        {
+            goingToRoundPos = !MoveTo(roundPos);
+        }
+    }
+
+    private void Dead()
+    {
+        if (!isDead)
+        {
+            attachedGameObject.animator.Play("Death");
+
+            isDead = true;
+            player.shieldKillCounter++;
+            // add player biomass
+            deathPSGO.Play();
+        }
+    }
+
+    private void ResetState()
+    {
+        attackTimer = 0.0f;
+        currentAttack = AdultXenomorphAttacks.None;
+        currentState = States.Chase;
+    }
+
+    public void ReduceLife() //temporary function for the hardcoding of collisions
+    {
+        life -= player.totalDamage;
+        if (life < 0) life = 0;
+    }
+
+    public void ReduceLifeExplosion()
+    {
+        life -= player.GrenadeLauncher.damage;
+        if (life < 0) life = 0;
+    }
+
+    private bool MoveTo(Vector3 targetPosition)
+    {
+        //Return true if arrived at destination
+        if (Vector3.Distance(attachedGameObject.transform.Position, targetPosition) < 0.5f) return true;
+
+        Vector3 dirVector = (targetPosition - attachedGameObject.transform.Position).Normalize();
+        attachedGameObject.transform.Translate(dirVector * movementSpeed * Time.deltaTime);
+        //attachedGameObject.source.PlayAudio(AudioManager.EventIDs.E_REBEL_STEP);
+        return false;
+    }
+
+    private void DebugDraw()
+    {
+        //Draw debug ranges
+        if (gameManager.colliderRender)
+        {
+            if (!detected)
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, detectedRange, new Vector3(1.0f, 0.8f, 0.0f)); //Yellow
+            }
+            else
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, isCloseRange, new Vector3(1.0f, 0.0f, 0.0f)); //Red
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, maxChasingRange, new Vector3(1.0f, 0.0f, 1.0f)); //Purple
+            }
+        }
+    }
+}`, 'cpp');
+
+// Editor 5
+createEditor('editor5', `using System;
+
+public class RedXenomorphBehaviour : MonoBehaviour
+{
+    enum States
+    {
+        Idle,
+        Attack,
+        Chase,
+        Patrol,
+        Dead
+    }
+
+    private enum RedXenomorphAttacks
+    {
+        None,
+        SpikeThrow,
+        TailStab
+    }
+
+    IGameObject playerGO;
+    Vector3 directorVector;
+    float playerDistance;
+
+    // Red Xenomorph parameters
+    float life = 250.0f;
+    float biomass = 25.0f;
+    float movementSpeed = 18.0f * 3;
+    States currentState = States.Idle;
+    States lastState = States.Idle;
+    RedXenomorphAttacks currentAttack = RedXenomorphAttacks.None;
+    Vector3 initialPos;
+
+    // Patrol
+    const float patrolRange = 100.0f;
+    float patrolSpeed = 20.0f;
+    float roundProgress = 0.0f; //Do not modify
+    bool goingToRoundPos = false;
+
+    // Ranges
+    const float detectedRange = 180.0f;
+    const float isCloseRange = 20.0f * 3;
+    const float maxChasingRange = 180.0f;
+    const float maxRangeStopChasing = 25.0f;
+
+    // Flags
+    bool detected = false;
+    bool isClose = false;
+    bool isDead = false;
+    bool hasShot = false;
+
+    // Timers
+    float attackTimer = 0.0f;
+    const float attackCooldown = 2.0f;
+    float destroyTimer = 0.0f;
+    const float destroyCooldown = 3.0f;
+    float delayTimer = 0.0f;
+    const float delayCooldown = 1.2f;
+
+    PlayerScript player;
+    GameManager gameManager;
+
+    // Particles
+    IParticleSystem acidSpitPSGO;
+    IParticleSystem tailAttackPSGO;
+    IParticleSystem deathPSGO;
+
+    public override void Start()
+    {
+        playerGO = IGameObject.Find("SK_MainCharacter");
+        player = playerGO.GetComponent<PlayerScript>();
+        initialPos = attachedGameObject.transform.Position;
+
+        gameManager = IGameObject.Find("GameManager").GetComponent<GameManager>();
+
+        attachedGameObject.animator.Play("Walk");
+        attachedGameObject.animator.Blend = true;
+        attachedGameObject.animator.TransitionTime = 0.3f;
+
+        acidSpitPSGO = attachedGameObject.FindInChildren("AcidSpitPS")?.GetComponent<IParticleSystem>();
+        tailAttackPSGO = attachedGameObject.FindInChildren("TailAttackPS")?.GetComponent<IParticleSystem>();
+        deathPSGO = attachedGameObject.FindInChildren("DeathPS")?.GetComponent<IParticleSystem>();
+    }
+
+    public override void Update()
+    {
+        attachedGameObject.animator.UpdateAnimation();
+
+        if (currentState == States.Dead)
+        {
+            //destroyTimer += Time.deltaTime;
+            //if (destroyTimer >= destroyCooldown)
+            //    attachedGameObject.Destroy();
+
+            return;
+        }
+
+        if (attachedGameObject.transform.ComponentCheck())
+        {
+            DebugDraw();
+
+            //Set the director vector and distance to the player
+            directorVector = (playerGO.transform.Position - attachedGameObject.transform.Position).Normalize();
+            playerDistance = Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position);
+
+            UpdateFSM();
+            DoStateBehaviour();
+        }
+    }
+
+    void UpdateFSM()
+    {
+        if (life <= 0)
+        {
+            currentState = States.Dead;
+            return;
+        }
+
+        if (!detected && playerDistance < detectedRange)
+        {
+            detected = true;
+            currentState = States.Chase;
+            //Debug.Log("Red Xenomorph switched to Chase");
+        }
+
+        if (detected)
+        {
+            CheckIsClose();
+
+            if (currentAttack == RedXenomorphAttacks.None)
+            {
+                attackTimer += Time.deltaTime;
+                attachedGameObject.animator.Play("Walk");
+            }
+
+            CheckIsMaxRangeStopChasing();
+
+            if (currentAttack == RedXenomorphAttacks.None && attackTimer >= attackCooldown)
+            {
+                currentState = States.Attack;
+                //Debug.Log("Red Xenomorph switched to Attack");
+            }
+
+            if (playerDistance > maxChasingRange && currentState != States.Attack)
+            {
+                detected = false;
+                currentState = States.Patrol;
+                //Debug.Log("Red Xenomorph switched to Patrol");
+            }
+        }
+    }
+
+    private void CheckIsClose()
+    {
+        if (playerDistance < isCloseRange && !isClose)
+        {
+            isClose = true;
+            //Debug.Log("Player is now CLOSE");
+        }
+        else if (playerDistance >= isCloseRange && isClose)
+        {
+            isClose = false;
+            //Debug.Log("Player is now FAR");
+        }
+    }
+
+    private void CheckIsMaxRangeStopChasing()
+    {
+        if (playerDistance <= maxRangeStopChasing && currentAttack == RedXenomorphAttacks.None &&
+            currentState != States.Idle)
+        {
+            currentState = States.Idle;
+            //Debug.Log("Player is INSIDE maxRangeStopChasing");
+        }
+        else if (playerDistance > maxRangeStopChasing && currentAttack == RedXenomorphAttacks.None &&
+                 currentState != States.Chase)
+        {
+            currentState = States.Chase;
+            //Debug.Log("Player is OUTSIDE maxRangeStopChasing");
+        }
+    }
+
+    void DoStateBehaviour()
+    {
+        switch (currentState)
+        {
+            case States.Idle:
+                return;
+            case States.Attack:
+                player.isFighting = true;
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                ChooseAttack();
+                switch (currentAttack)
+                {
+                    case RedXenomorphAttacks.SpikeThrow:
+                        SpikeThrow();
+                        break;
+                    case RedXenomorphAttacks.TailStab:
+                        TailStab();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case States.Chase:
+                player.isFighting = true;
+                attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * movementSpeed * Time.deltaTime);
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                break;
+            case States.Patrol:
+                Patrol();
+                break;
+            case States.Dead:
+                Dead();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ChooseAttack()
+    {
+        if (currentAttack == RedXenomorphAttacks.None)
+        {
+            if (isClose)
+            {
+                currentAttack = RedXenomorphAttacks.TailStab;
+                attachedGameObject.animator.Play("TailStab");
+                tailAttackPSGO.Play();
+            }
+            else
+            {
+                currentAttack = RedXenomorphAttacks.SpikeThrow;
+                attachedGameObject.animator.Play("SpikeThrow");
+                acidSpitPSGO.Play();
+            }
+            //Debug.Log("RedXenomorph current attack: " + currentAttack);
+        }
+    }
+
+    private void SpikeThrow()
+    {
+        delayTimer += Time.deltaTime;
+
+        if (!hasShot && delayTimer >= delayCooldown)
+        {
+            hasShot = true;
+            Vector3 height = new Vector3(0.0f, 38.0f, 0.0f);
+            InternalCalls.InstantiateBullet(attachedGameObject.transform.Position + attachedGameObject.transform.Forward * 13.5f + height, attachedGameObject.transform.Rotation);
+            // SFX Goes here
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            hasShot = false;
+            delayTimer = 0.0f;
+            ResetState();
+        }
+    }
+
+    private void TailStab()
+    {
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            ResetState();
+        }
+    }
+
+    private void Patrol()
+    {
+        attachedGameObject.animator.Play("Walk");
+
+        if (currentState != lastState)
+        {
+            lastState = currentState;
+            goingToRoundPos = true;
+        }
+
+        roundProgress += Time.deltaTime * patrolSpeed;
+        if (roundProgress > 360.0f) roundProgress -= 360.0f;
+
+        Vector3 roundPos = initialPos +
+                           Vector3.right * (float)Math.Cos(roundProgress * Math.PI / 180.0f) * patrolRange +
+                           Vector3.forward * (float)Math.Sin(roundProgress * Math.PI / 180.0f) * patrolRange;
+
+        attachedGameObject.transform.LookAt2D(roundPos);
+        if (!goingToRoundPos)
+        {
+            MoveTo(roundPos);
+        }
+        else
+        {
+            goingToRoundPos = !MoveTo(roundPos);
+        }
+    }
+
+    private void Dead()
+    {
+        if (!isDead)
+        {
+            attachedGameObject.animator.Play("Death");
+            isDead = true;
+            player.shieldKillCounter++;
+            // add player biomass
+            deathPSGO.Play();
+        }
+    }
+
+    private void ResetState()
+    {
+        attackTimer = 0.0f;
+        currentAttack = RedXenomorphAttacks.None;
+        currentState = States.Chase;
+    }
+
+    public void ReduceLife() //temporary function for the hardcoding of collisions
+    {
+        life -= player.totalDamage;
+        if (life < 0) life = 0;
+    }
+    public void ReduceLifeExplosion()
+    {
+        life -= player.GrenadeLauncher.damage;
+        if (life < 0) life = 0;
+    }
+
+    private bool MoveTo(Vector3 targetPosition)
+    {
+        //Return true if arrived at destination
+        if (Vector3.Distance(attachedGameObject.transform.Position, targetPosition) < 0.5f) return true;
+
+        Vector3 dirVector = (targetPosition - attachedGameObject.transform.Position).Normalize();
+        attachedGameObject.transform.Translate(dirVector * movementSpeed * Time.deltaTime);
+        //attachedGameObject.source.PlayAudio(AudioManager.EventIDs.E_REBEL_STEP);
+        return false;
+    }
+
+    private void DebugDraw()
+    {
+        //Draw debug ranges
+        if (gameManager.colliderRender)
+        {
+            if (!detected)
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, detectedRange, new Vector3(1.0f, 0.8f, 0.0f)); //Yellow
+            }
+            else
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, isCloseRange, new Vector3(1.0f, 0.0f, 0.0f)); //Red
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, maxChasingRange, new Vector3(1.0f, 0.0f, 1.0f)); //Purple
+            }
+        }
+    }
+}`, 'cpp');
+
+// Editor 6
+createEditor('editor6', `﻿using System;
+
+public class WhiteXenomorphBehaviour : MonoBehaviour
+{
+    enum States
+    {
+        Idle,
+        Attack,
+        Chase,
+        Patrol,
+        Dead
+    }
+
+    private enum WhiteXenomorphAttacks
+    {
+        None,
+        ClawAttack,
+        TailTrip
+    }
+
+    IGameObject playerGO;
+    float playerDistance;
+
+    // White Xenomorph parameters
+    float life = 350.0f;
+    float biomass = 30.0f;
+    float movementSpeed = 20.0f * 3;
+    States currentState = States.Idle;
+    States lastState = States.Idle;
+    WhiteXenomorphAttacks currentAttack = WhiteXenomorphAttacks.None;
+    Vector3 initialPos;
+
+    // Patrol
+    readonly float patrolRange = 100;
+    readonly float patrolSpeed = 20.0f;
+    float roundProgress = 0.0f; //Do not modify
+    bool goingToRoundPos = false;
+
+    // Ranges
+    const float detectedRange = 180.0f;
+    const float isCloseRange = 20.0f * 3;
+    const float maxChasingRange = 180.0f;
+    const float maxRangeStopChasing = 25.0f;
+
+    // Flags
+    bool detected = false;
+    bool isClose = false;
+    bool isDead = false;
+
+    // Timers
+    float attackTimer = 0.0f;
+    const float attackCooldown = 2.0f;
+    float destroyTimer = 0.0f;
+    const float destroyCooldown = 3.0f;
+
+    PlayerScript player;
+    GameManager gameManager;
+
+    // Particles
+    IParticleSystem acidSpitPSGO;
+    IParticleSystem tailAttackPSGO;
+    IParticleSystem deathPSGO;
+
+    public override void Start()
+    {
+        playerGO = IGameObject.Find("SK_MainCharacter");
+        player = playerGO.GetComponent<PlayerScript>();
+        initialPos = attachedGameObject.transform.Position;
+
+        gameManager = IGameObject.Find("GameManager").GetComponent<GameManager>();
+
+        attachedGameObject.animator.Play("Walk");
+        attachedGameObject.animator.Blend = true;
+        attachedGameObject.animator.TransitionTime = 0.3f;
+
+        acidSpitPSGO = attachedGameObject.FindInChildren("AcidSpitPS")?.GetComponent<IParticleSystem>();
+        tailAttackPSGO = attachedGameObject.FindInChildren("TailAttackPS")?.GetComponent<IParticleSystem>();
+        deathPSGO = attachedGameObject.FindInChildren("DeathPS")?.GetComponent<IParticleSystem>();
+    }
+
+    public override void Update()
+    {
+        attachedGameObject.animator.UpdateAnimation();
+
+        if (currentState == States.Dead)
+        {
+            //destroyTimer += Time.deltaTime;
+            //if (destroyTimer >= destroyCooldown)
+            //    attachedGameObject.Destroy();
+
+            return;
+        }
+
+        if (attachedGameObject.transform.ComponentCheck())
+        {
+            //Set the director vector and distance to the player
+            playerDistance = Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position);
+
+            UpdateFSM();
+            DoStateBehaviour();
+        }
+
+        DebugDraw();
+    }
+
+    void UpdateFSM()
+    {
+        if (life <= 0)
+        {
+            currentState = States.Dead;
+            return;
+        }
+
+        if (!detected && playerDistance < detectedRange)
+        {
+            detected = true;
+            currentState = States.Chase;
+            //Debug.Log("White Xenomorph switched to Chase");
+        }
+
+        if (detected)
+        {
+            CheckIsClose();
+
+            if (currentAttack == WhiteXenomorphAttacks.None)
+            {
+                attackTimer += Time.deltaTime;
+                attachedGameObject.animator.Play("Walk");
+            }
+
+            CheckIsMaxRangeStopChasing();
+
+            if (currentAttack == WhiteXenomorphAttacks.None && attackTimer >= attackCooldown)
+            {
+                currentState = States.Attack;
+                //Debug.Log("White Xenomorph switched to Attack");
+            }
+
+            if (playerDistance > maxChasingRange && currentState != States.Attack)
+            {
+                detected = false;
+                currentState = States.Patrol;
+                //Debug.Log("White Xenomorph switched to Patrol");
+            }
+        }
+    }
+
+    private void CheckIsClose()
+    {
+        if (playerDistance < isCloseRange && !isClose)
+        {
+            isClose = true;
+            //Debug.Log("Player is now CLOSE");
+        }
+        else if (playerDistance >= isCloseRange && isClose)
+        {
+            isClose = false;
+            //Debug.Log("Player is now FAR");
+        }
+    }
+
+    private void CheckIsMaxRangeStopChasing()
+    {
+        if (playerDistance <= maxRangeStopChasing && currentAttack == WhiteXenomorphAttacks.None &&
+            currentState != States.Idle)
+        {
+            currentState = States.Idle;
+            //Debug.Log("Player is INSIDE maxRangeStopChasing");
+        }
+        else if (playerDistance > maxRangeStopChasing && currentAttack == WhiteXenomorphAttacks.None &&
+                 currentState != States.Chase)
+        {
+            currentState = States.Chase;
+            //Debug.Log("Player is OUTSIDE maxRangeStopChasing");
+        }
+    }
+
+    void DoStateBehaviour()
+    {
+        switch (currentState)
+        {
+            case States.Idle:
+                return;
+            case States.Attack:
+                player.isFighting = true;
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                ChooseAttack();
+                switch (currentAttack)
+                {
+                    case WhiteXenomorphAttacks.ClawAttack:
+                        ClawAttack();
+                        break;
+                    case WhiteXenomorphAttacks.TailTrip:
+                        TailTrip();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case States.Chase:
+                player.isFighting = true;
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * movementSpeed * Time.deltaTime);
+                break;
+            case States.Patrol:
+                Patrol();
+                break;
+            case States.Dead:
+                Dead();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ChooseAttack()
+    {
+        if (currentAttack == WhiteXenomorphAttacks.None)
+        {
+            if (isClose)
+            {
+                currentAttack = WhiteXenomorphAttacks.ClawAttack;
+                attachedGameObject.animator.Play("ClawAttack");
+
+                tailAttackPSGO.Play();
+            }
+            else
+            {
+                currentAttack = WhiteXenomorphAttacks.TailTrip;
+                attachedGameObject.animator.Play("TailTrip");
+
+                acidSpitPSGO.Play();
+            }
+            //Debug.Log("WhiteXenomorph current attack: " + currentAttack);
+        }
+    }
+
+    private void ClawAttack()
+    {
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            ResetState();
+        }
+    }
+
+    private void TailTrip()
+    {
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            ResetState();
+        }
+    }
+
+    private void Patrol()
+    {
+        attachedGameObject.animator.Play("Walk");
+
+        if (currentState != lastState)
+        {
+            lastState = currentState;
+            goingToRoundPos = true;
+        }
+
+        roundProgress += Time.deltaTime * patrolSpeed;
+        if (roundProgress > 360.0f) roundProgress -= 360.0f;
+
+        Vector3 roundPos = initialPos +
+                           Vector3.right * (float)Math.Cos(roundProgress * Math.PI / 180.0f) * patrolRange +
+                           Vector3.forward * (float)Math.Sin(roundProgress * Math.PI / 180.0f) * patrolRange;
+
+        attachedGameObject.transform.LookAt2D(roundPos);
+        if (!goingToRoundPos)
+        {
+            MoveTo(roundPos);
+        }
+        else
+        {
+            goingToRoundPos = !MoveTo(roundPos);
+        }
+    }
+
+    private void Dead()
+    {
+        if (!isDead)
+        {
+            attachedGameObject.animator.Play("Death");
+            isDead = true;
+            player.shieldKillCounter++;
+            // add player biomass
+            deathPSGO.Play();
+        }
+    }
+
+    private void ResetState()
+    {
+        attackTimer = 0.0f;
+        currentAttack = WhiteXenomorphAttacks.None;
+        currentState = States.Chase;
+    }
+
+    public void ReduceLife() //temporary function for the hardcoding of collisions
+    {
+        life -= player.totalDamage;
+        if (life < 0) life = 0;
+    }
+
+    public void ReduceLifeExplosion()
+    {
+        life -= player.GrenadeLauncher.damage;
+        if (life < 0) life = 0;
+    }
+
+    private bool MoveTo(Vector3 targetPosition)
+    {
+        //Return true if arrived at destination
+        if (Vector3.Distance(attachedGameObject.transform.Position, targetPosition) < 0.5f) return true;
+
+        Vector3 dirVector = (targetPosition - attachedGameObject.transform.Position).Normalize();
+        attachedGameObject.transform.Translate(dirVector * movementSpeed * Time.deltaTime);
+
+        return false;
+    }
+
+    private void DebugDraw()
+    {
+        //Draw debug ranges
+        if (gameManager.colliderRender)
+        {
+            if (!detected)
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, detectedRange, new Vector3(1.0f, 0.8f, 0.0f)); //Yellow
+            }
+            else
+            {
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, isCloseRange, new Vector3(1.0f, 0.0f, 0.0f)); //Red
+                Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up * 4, maxChasingRange, new Vector3(1.0f, 0.0f, 1.0f)); //Purple
+            }
+        }
+    }
+}`, 'cpp');}
 // Wait for the window to fully load before initializing editors
 window.onload = function() {
             initializeEditors();

@@ -1938,6 +1938,7 @@ footer {
 	display: flex;
 	width: 100%;
 	margin: 0 0 2em 0;
+	border-radius: 20px;
 }
 
 .image.logo {
@@ -2091,7 +2092,7 @@ ul.icons li a:hover {
 form label {
 	display: block;
 	font-weight: 400;
-	color: #483949;
+	color: #4f3d50;
 	margin: 0 0 1em 0;
 }
 
@@ -3000,6 +3001,7 @@ body.homepage.is-preload #header:after {
 
 	.image.featured {
 		margin: 0 0 2em 0;
+		border-radius: 20px;
 	}
 
 	.image.left {

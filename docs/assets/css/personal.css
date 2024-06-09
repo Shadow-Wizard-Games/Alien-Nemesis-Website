@@ -2188,3 +2188,197 @@ article.special>footer {
   background-color: #ecd791;
   transform: scale(1.1);
 }
+
+/* Slideshow container */
+.slideshow-container2 {
+  width: 100%;
+  position: relative;
+  margin: 40px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 4%;
+  box-shadow: 0 0px 20px rgba(0, 255, 0, 1.0);
+  margin-bottom: 4em;
+}
+
+/* Hide the images by default */
+.weaponassets2 {
+  display: none;
+}
+
+.weaponassets2:active {
+  display: block;
+}
+
+/* Next & previous buttons */
+.prev2,
+.next2 {
+  cursor: pointer;
+  position: relative;
+  width: auto;
+  padding: 30px;
+  padding-top: 280px;
+  color: white;
+  background-color: rgb(0, 255, 0);
+  font-weight: bold;
+  font-size: 60px;
+  text-align: center;
+  transition: 0.6s ease;
+  border-radius: 24px 0px 0px 24px;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next2 {
+  right: 0;
+  border-radius: 0px 24px 24px 0px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev2:hover,
+.next2:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/4 etc) */
+.numbertext2 {
+  color: #f2f2f2;
+  font-size: 24px;
+  margin-top: 1em;
+  margin-left: 6em;
+  font-family: Alien Invader;
+  color: rgb(0, 255, 0);
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+.row-UI {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column-UI {
+  flex: 100%;
+  max-width: 25%;
+  padding: 0 20px;
+}
+
+.column-UI img {
+  margin-top: 4px;
+  vertical-align: middle;
+  width: 100%;
+  height: 300px;
+  border-radius: 5%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column-UI {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column-UI {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Style for the image container */
+.ui-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  width: 100%;
+  height: 400px; /* Adjust this height as needed */
+}
+
+/* Style for the image overlay */
+.ui-image-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style for the normal image */
+.ui-image-normal {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  transition: opacity 0.3s ease;
+}
+
+/* Style for the hover image */
+.ui-image-hover {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+}
+
+/* Show hover image on hover */
+.ui-image-container:hover .image-hover {
+  display: block;
+}
+
+/* Hide normal image on hover */
+.ui-image-container:hover .image-normal {
+  opacity: 0;
+}
+
+/* Style for the image text */
+.ui-image-text {
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-size: 18px; /* Adjust the font size as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 10px; /* Add padding for better visibility */
+  width: 100%;
+  z-index: 1; /* Ensure the text appears above the image */
+}
+
+.figure {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 5%;
+  margin: 20px;
+}
+
+.figure img{
+  opacity: 0.7;
+}
+
+.figure img.Sirv.image-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.figure:hover img.Sirv.image-hover {
+  opacity: 1;
+  border-radius: 5%;
+}

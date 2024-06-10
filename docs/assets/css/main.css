@@ -2838,6 +2838,7 @@ body.homepage.is-preload #header:after {
 
 	.carousel .reel {
 		padding: 0em 1.5em 0 1.5em;
+		align-content: center;
 	}
 
 	.carousel article {
@@ -3536,6 +3537,7 @@ body.homepage.is-preload #header:after {
 		position: relative;
 		-webkit-overflow-scrolling: touch;
 		padding: 0 0em 0 0em;
+		align-content: center;
 	}
 
 	.carousel article {
@@ -3598,6 +3600,7 @@ body.homepage.is-preload #header:after {
 
 		.carousel .reel {
 			padding: 0em 1.5em 0 1.5em;
+			align-content: center;
 		}
 
 		.carousel article {
@@ -3749,6 +3752,7 @@ body.homepage.is-preload #header:after {
 
 	.carousel .reel {
 		padding: 0 0.5em 0 0.5em;
+		align-content: center;
 	}
 
 	.carousel article {

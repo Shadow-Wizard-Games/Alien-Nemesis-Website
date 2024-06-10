@@ -118,7 +118,7 @@
                         margin: 40px;">
                         <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); text-decoration: underline; font-size: 32px; text-align: center;">
                             Mono Embedding</h4>
-							<img src="images/bio/Ethan/Mono_Project_Logo.png" style="object-fit: fill; height:200px; width: 200px; border-radius: 5%;" alt="" />
+							<img src="images/bio/Ethan/Mono_Project_Logo1.png" style="object-fit: fill; height:200px; width: 200px; border-radius: 5%;" alt="" />
 							<p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
                             One of the first things to do in the project was to embed the Mono Framework.
                         </p>
@@ -142,6 +142,7 @@
                         <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px; padding-bottom: 36px;">
                             After a huge rework of the design of the Alien Queen, I re-programmed all of the new behaviour almost from scratch.
                         </p>
+                        <img src="images/bio/Ethan/Queen_Head1.png" style="object-fit: fill; height:200px; width: 200px; border-radius: 5%;" alt="" />
 						<p style="padding: 0px 0px 0 0; text-align: center; color: rgb(29, 250, 0); padding-left: 10px; padding-right: 10px; font-size: 28px; font-weight: bold;">Demo Below</p>
                         </div>
                         <div class="bio-container" style="width: 800px;
@@ -152,6 +153,7 @@
                         <p style="padding: 0px 0px 0 0; text-align: center; color: white; padding-left: 10px; padding-right: 10px; font-size: 22px;">
                             Even though they have been reworked afterwards, I also laid the foundation for two of the enemies in the game.
                         </p>
+                        <img src="images/bio/Ethan/xenohead1.png" style="object-fit: fill; height:200px; width: 200px; border-radius: 5%;" alt="" />
 						<p style="padding: 0px 0px 0 0; text-align: center; color: rgb(29, 250, 0); padding-left: 10px; padding-right: 10px; font-size: 28px; font-weight: bold; padding-top: 30px;">Demo Below</p>
                         </div>
                     </div>
@@ -218,9 +220,9 @@
                 <div style="display: flex; flex-direction: row; justify-content: space-evenly">
                     <div style="display: flex; flex-direction: column; align-items: left; justify-content: left; width: 400px;">
                     <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: left;">
-                        Anarchist Behavior</h4>
+                        Final Boss Behaviour</h4>
                         <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: left;">
-                            Behavior within the game title, involving state management, detection, animations, & more. 
+                            The logic behind the Final Boss: The Alien Queen. Includes Finite State Machines, attacks and phase changes, all intertwined to create a dynamic and epic boss battle.
                         </p>
                     </div>
                     <div id="editor1" class="editor-container"></div>
@@ -229,30 +231,10 @@
                     <div id="editor2" class="editor-container"></div>
                     <div style="display: flex; flex-direction: column; align-items: right; justify-content: right; width: 400px;">
                         <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: right;">
-                            Chestburster Behavior</h4>
-                            <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: right;">Behavior within the game title, involving state management, detection, animations, & more. </p>
+                            Mono Framework Manager</h4>
+                            <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: right;">The class responsible for the interaction with the Mono Framework. From here, we initialize the runtime, create the different C# instances and through this we can access any script we want with a simple call. </p>
                         </div>
                 </div>
-                <div style="display: flex; flex-direction: row; justify-content: space-evenly; padding-top: 80px;">
-                    <div style="display: flex; flex-direction: column; align-items: left; justify-content: left; width: 400px;">
-                    <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: left;">
-                        Facehugger Behavior</h4>
-                        <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: left;">
-                            Behavior within the game title, involving state management, detection, animations, & more. 
-                        </p>
-                    </div>
-                    <div id="editor3" class="editor-container"></div>
-                </div>
-                <div style="display: flex; flex-direction: row; justify-content: space-evenly; padding-top: 80px;">
-                    <div id="editor4" class="editor-container"></div>
-                    <div style="display: flex; flex-direction: column; align-items: right; justify-content: right; width: 400px;">
-                        <h4 style="font-family: Alien Invader; color: white; padding-top: 40px; padding-bottom: 20px; color:rgb(250, 236, 156); font-size: 28px; text-align: right;">
-                            Adult Xenomorph Behavior</h4>
-                            <p style="padding: 0px 0px 0 0; color: white; font-size: 22px; text-align: right;">
-                                Behavior within the game title, involving state management, detection, animations, & more. 
-                            </p>
-                        </div>
-                </div>  
 			</div>
 		</div>
 	</div> 
@@ -430,34 +412,811 @@
         // Initialize editors
         function initializeEditors() {
         // Editor 1
-        createEditor('editor1', `void MonoManager::InitMono()
+        createEditor('editor1', `public class AlienQueenBehaviourNew : MonoBehaviour
+{
+    float countDown = 0.0f;
+
+    IGameObject playerGO;
+    PlayerScript playerScript;
+
+    ICollider2D collider;
+    float initialColliderRadius;
+
+    float maxLife = 1500;
+    float currentLife;
+    bool isDead = false;
+
+    public override void Start()
+    {
+        playerGO = IGameObject.Find("SK_MainCharacter");
+        playerScript = playerGO.GetComponent<PlayerScript>();
+        currentLife = maxLife;
+
+        collider = attachedGameObject.GetComponent<ICollider2D>();
+        initialColliderRadius = collider.radius;
+
+        attachedGameObject.animator.Play("Idle");
+    }
+
+    public override void Update()
+    {
+        attachedGameObject.animator.UpdateAnimation();
+
+        if (isDead) { return; }
+
+        DoStateBehaviour();
+
+        if (currentLife < 0) { isDead = true; attachedGameObject.animator.Play("Death"); }
+    }
+
+    #region FSM
+
+    uint currentPhase = 1;
+
+    enum States
+    {
+        InitialState,
+        Zigzag,
+        Circle,
+        Waiting,
+        Attack,
+        ChangingPhase,
+        None
+    }
+
+    States lastState = States.InitialState;
+    States currentState = States.InitialState;
+
+    bool CheckPhaseChange()
+    {
+        if (currentPhase < 2 && currentLife <= maxLife / 1.5f ||
+            currentPhase < 3 && currentLife <= maxLife / 3.0f)
+        {
+            Debug.LogWarning("Phase changing from " + currentPhase.ToString() + " to " + (currentPhase + 1).ToString());
+            currentState = States.ChangingPhase;
+            return true;
+        }
+        return false;
+    }
+
+    void DoStateBehaviour()
+    {
+        switch (currentState)
+        {
+            case States.InitialState:
+                DoIdle();
+                break;
+            case States.Zigzag:
+                DoZigzag();
+                break;
+            case States.Circle:
+                DoCircle();
+                break;
+            case States.Waiting:
+                DoWait();
+                break;
+            case States.Attack:
+                DoAttack();
+                break;
+            case States.ChangingPhase:
+                DoPhaseChange();
+                break;
+            default:
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+                Debug.LogError("Fallen out of FSM");
+                break;
+        }
+        if (rainActive) { AcidRain(); }
+    }
+
+    float detectionRange = 400.0f;
+    float playerDistance;
+    void DoIdle()
+    {
+        playerDistance = Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position);
+        if (playerDistance < detectionRange)
+        {
+            currentState = States.Zigzag;
+        }
+
+        Debug.DrawWireCircle(attachedGameObject.transform.Position + Vector3.up, detectionRange, Color.asianYellow.ToVector3());
+    }
+
+    float alienSpeed = 300;
+    float zigzagWidth = 200;
+    float xCalcSpeed = 250.0f;
+    float yCalcSpeed = 200.0f;
+
+    #region Other variables
+    Vector3 xProgress;
+    Vector3 yProgress;
+
+    Vector3 lastPlayerPos;
+    Vector3 chargeDirectionRightVec;
+    Vector3 chargeDirectionForwardVec;
+
+    Vector3 moveToTarget;
+
+    float zigzagPos = 270.0f;
+
+    bool reachedPoint = false;
+    #endregion
+
+    void DoZigzag()
+    {
+        if (currentState != lastState)
+        {
+            Debug.Log("Queen now entering zigzag state");
+
+            lastState = currentState;
+
+            attachedGameObject.animator.Play("Run");
+
+            lastPlayerPos = playerGO.transform.Position;
+            attachedGameObject.transform.LookAt2D(lastPlayerPos);
+            chargeDirectionRightVec = attachedGameObject.transform.Right;
+            chargeDirectionForwardVec = attachedGameObject.transform.Forward;
+            yProgress = attachedGameObject.transform.Position;
+            zigzagPos = 270.0f;
+            reachedPoint = false;
+        }
+
+
+        zigzagPos += Time.deltaTime * xCalcSpeed;
+        if (zigzagPos > 360.0f) zigzagPos -= 360.0f;
+
+        xProgress = chargeDirectionRightVec * (float)Math.Cos(zigzagPos * Math.PI / 180.0f) * zigzagWidth;
+
+        yProgress += chargeDirectionForwardVec * yCalcSpeed * Time.deltaTime;
+
+        moveToTarget = xProgress + yProgress;
+
+        attachedGameObject.transform.LookAt2D(moveToTarget);
+        attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * alienSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(yProgress, lastPlayerPos) < 5.0f)
+        {
+            reachedPoint = true;
+        }
+        if (reachedPoint && ((zigzagPos > 80 && zigzagPos < 100) || (zigzagPos > 260 && zigzagPos < 280)))
+        {
+            currentState = States.Waiting;
+        }
+    }
+
+    float alienCircleSpeed = 420.0f;
+    float circleTime = 5.0f;
+    float circleSize = 200.0f;
+    float cicleCalcSpeed = 150.0f;
+
+    #region Other variables
+    float counterPos;
+    Vector3 progressPos;
+    bool circleStarted = false;
+    #endregion
+
+    void DoCircle()
+    {
+        if (currentState != lastState)
+        {
+            Debug.Log("Queen now entering circle state");
+            lastState = currentState;
+
+            attachedGameObject.animator.Play("Run");
+
+            countDown = 0.0f;
+            circleStarted = false;
+        }
+
+        //Moving towards the player until reaching circle size
+        if (!circleStarted &&
+            Vector3.Distance(playerGO.transform.Position, attachedGameObject.transform.Position) > circleSize + circleSize / 2)
+        {
+            MoveTo(playerGO.transform.Position, alienCircleSpeed / 1.5f);
+            attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+
+            return;
+        }
+        else
+        {
+            circleStarted = true;
+
+            Vector3 directorVec = playerGO.transform.Position - attachedGameObject.transform.Position;
+            counterPos = (float)Math.Atan2(directorVec.z, directorVec.x) * 180.0f / (float)Math.PI + 180.0f;
+
+            if (counterPos < 0) { counterPos += 360.0f; }
+        }
+
+        //Running around the player
+        counterPos += Time.deltaTime * cicleCalcSpeed;
+        if (counterPos > 360.0f) counterPos -= 360.0f;
+
+        progressPos = Vector3.zero;
+        progressPos += Vector3.right * (float)Math.Cos(-counterPos * Math.PI / 180.0f) * circleSize;
+        progressPos += Vector3.forward * (float)Math.Sin(counterPos * Math.PI / 180.0f) * circleSize;
+        progressPos += playerGO.transform.Position;
+
+        attachedGameObject.transform.LookAt2D(progressPos);
+        attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * alienCircleSpeed * Time.deltaTime);
+
+        countDown += Time.deltaTime;
+        if (countDown > circleTime)
+        {
+            countDown = 0.0f;
+            currentState = States.Waiting;
+        }
+    }
+
+    float waitingTime = 2.0f;
+    void DoWait()
+    {
+        if (currentState != lastState)
+        {
+            Debug.Log("Queen now entering wait state");
+            lastState = currentState;
+
+            attachedGameObject.animator.Play("Idle");
+
+            countDown = 0.0f;
+        }
+
+        attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+
+        countDown += Time.deltaTime;
+        if (countDown > waitingTime)
+        {
+            countDown = 0.0f;
+            currentState = States.Attack;
+        }
+    }
+
+    enum Attacks
+    {
+        TailPhase1,
+        AcidPhase1,
+        Spawn,     
+        TailPhase2,
+        AcidPhase2,
+        Jump,      
+        Charge,    
+        None
+    }
+
+    Attacks currentAttack = Attacks.None;
+    bool attackedFinished = false;
+    bool attackFirstFrame = true;
+    bool combinedFirstAttack = true;
+    void DoAttack()
+    {
+        if (currentState != lastState)
+        {
+            Debug.Log("Queen now entering attack state");
+            currentAttack = ChooseAttack();
+            lastState = currentState;
+        }
+
+        switch (currentAttack)
+        {
+            case Attacks.TailPhase1:
+                TailSweep();
+                break;
+            case Attacks.AcidPhase1:
+                AcidBomb();
+                break;
+            case Attacks.Spawn:
+                Spawn();
+                break;
+            case Attacks.TailPhase2:
+
+                if (combinedFirstAttack)
+                {
+                    combinedFirstAttack = TailSweep();
+                }
+                else
+                {
+                    TailShot();
+                }
+
+                break;
+            case Attacks.AcidPhase2:
+                if (combinedFirstAttack)
+                {
+                    combinedFirstAttack = AcidBomb();
+                }
+                else
+                {
+                    AcidSpit();
+                }
+                break;
+            case Attacks.Jump:
+                Jump();
+                break;
+            case Attacks.Charge:
+                HeadCharge();
+                break;
+            default:
+                break;
+        }
+
+        if (attackedFinished)
+        {
+            if (CheckPhaseChange()) { return; }
+
+            attackedFinished = false;
+
+            if (currentPhase == 1) { currentState = States.Zigzag; }
+            else if (currentPhase == 2)
+            {
+
+                if (Convert.ToBoolean(new Random().Next(2)))
+                {
+                    currentState = States.Zigzag;
+                    pathPhase2 = States.Zigzag;
+                }
+                else
+                {
+                    currentState = States.Circle;
+                    pathPhase2 = States.Circle;
+                }
+            }
+            else
+            {
+                stagePhase3++;
+                if (stagePhase3 > 4) { stagePhase3 = 0; }
+                currentAttack = ChooseAttack();
+            }
+
+            attackFirstFrame = true;
+        }
+    }
+
+    void DoPhaseChange()
+    {
+        if (currentState != lastState)
+        {
+            Debug.Log("Queen now entering PhaseChange state");
+            lastState = currentState;
+
+            attachedGameObject.animator.Play("Phase_Change");
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            currentPhase++;
+            currentState = States.Attack;
+        }
+    }
+
+    #endregion
+
+    #region Attacks
+
+    Dictionary<Attacks, float> chancesPhase1 =
+    new Dictionary<Attacks, float>
+    {
+        { Attacks.TailPhase1, 0.3f },
+        { Attacks.AcidPhase1, 0.3f },
+        { Attacks.Spawn, 0.4f },
+    };
+
+    Dictionary<Attacks, float> chancesPhase2 =
+    new Dictionary<Attacks, float>
+    {
+        { Attacks.TailPhase2, 0.7f },
+        { Attacks.AcidPhase2, 0.7f },
+        { Attacks.Spawn, 0.3f },
+    };
+
+    States pathPhase2 = States.Zigzag;
+    int stagePhase3 = 0;
+    Attacks ChooseAttack()
+    {
+        Random rand = new Random();
+        float randomNum = (float)rand.NextDouble();
+
+        switch (currentPhase)
+        {
+            case 1:
+                foreach (KeyValuePair<Attacks, float> entry in chancesPhase1)
+                {
+                    randomNum -= entry.Value;
+                    if (randomNum <= 0)
+                    {
+                        Debug.Log("Queen doing attack: " + entry.Key.ToString());
+                        return entry.Key;
+                    }
+                }
+                Debug.LogError("Queen FSM fell into unintended behaviour when choosing attack (phase 1)");
+                return Attacks.None;
+            case 2:
+                Debug.Log("Queen branching path was: " + pathPhase2.ToString());
+                if (pathPhase2 == States.Circle)
+                {
+                    randomNum -= chancesPhase2[Attacks.TailPhase2];
+                    if (randomNum <= 0) return Attacks.TailPhase2;
+                    else return Attacks.Spawn;
+                }
+                else if (pathPhase2 == States.Zigzag)
+                {
+                    randomNum -= chancesPhase2[Attacks.AcidPhase2];
+                    if (randomNum <= 0) return Attacks.AcidPhase2;
+                    else return Attacks.Spawn;
+                }
+                Debug.LogError("Queen FSM fell into unintended behaviour when choosing attack (phase 2)");
+                return Attacks.None;
+            case 3:
+                switch (stagePhase3)
+                {
+                    case 0: return Attacks.AcidPhase2;
+                    case 1: return Attacks.Jump;
+                    case 2: return Attacks.TailPhase2;
+                    case 3: return Attacks.Charge;
+                    case 4: return Attacks.Spawn;
+                    default:
+                        Debug.LogError("Queen FSM fell into unintended behaviour when choosing attack (phase 3)");
+                        return Attacks.None;
+                }
+
+            default:
+                Debug.LogError("Queen FSM current phase is invalid");
+                return Attacks.None;
+        }
+    }
+
+    private bool TailSweep()
+    {
+        if (attackFirstFrame)
+        {
+            attachedGameObject.animator.Play("Tail_Sweep");
+            attackFirstFrame = false;
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            if (currentPhase == 1)
+            {
+                attackedFinished = true;
+            }
+            else
+            {
+                attackFirstFrame = true;
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void TailShot()
+    {
+        if (attackFirstFrame)
+        {
+            attachedGameObject.animator.Play("Tail_Shot");
+            attackFirstFrame = false;
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            combinedFirstAttack = true;
+            attackedFinished = true;
+        }
+    }
+
+
+    private bool AcidBomb()
+    {
+        if (attackFirstFrame)
+        {
+            attachedGameObject.animator.Play("Acid_Bombs");
+            attackFirstFrame = false;
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            rainActive = true;
+            acidRainCenter = playerGO.transform.Position;
+
+            if (currentPhase == 1)
+            {
+                attackedFinished = true;
+            }
+            else
+            {
+                attackFirstFrame = true;
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void AcidSpit()
+    {
+        if (attackFirstFrame)
+        {
+            attachedGameObject.animator.Play("Acid_Spit");
+            attackFirstFrame = false;
+        }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            combinedFirstAttack = true;
+            attackedFinished = true;
+        }
+    }
+
+
+    float rainArea = 170.0f;
+    float timeBetweenRaindrops = 0.4f;
+    float rainDuration = 5.0f;
+
+    #region Other variables
+    bool rainActive = false;
+    float dropsCounter = 0.0f;
+    float rainTimeCounter = 0.0f;
+    Vector3 acidRainCenter;
+    #endregion
+
+    private void AcidRain()
+    {
+        dropsCounter += Time.deltaTime;
+        if (dropsCounter >= timeBetweenRaindrops)
+        {
+            dropsCounter -= timeBetweenRaindrops;
+
+            Random rand = new Random();
+            float angle = (float)(rand.NextDouble() * 2 * Math.PI);
+
+            float radius = rainArea * (float)Math.Sqrt(rand.NextDouble());
+
+            Vector3 localPos = new Vector3(radius * (float)Math.Cos(angle),
+                                           0.0f,
+                                           radius * (float)Math.Sin(angle));
+
+            InternalCalls.CreatePrefab("Acid_Raindrop", acidRainCenter + localPos, Vector3.zero);
+        }
+
+        rainTimeCounter += Time.deltaTime;
+        if (rainTimeCounter >= rainDuration) { rainTimeCounter = 0.0f; rainActive = false; }
+
+        Debug.DrawWireCircle(acidRainCenter, rainArea, Color.chernobylGreen.ToVector3());
+    }
+
+    float spawnDuration = 5.0f;
+    bool spawned = false;
+    private void Spawn()
+    {
+        if (attackFirstFrame)
+        {
+            attackFirstFrame = false;
+        }
+
+        if (!spawned)
+        {
+            spawned = true;
+
+            Vector3 scale = new Vector3(1, 1, 1);
+
+            InternalCalls.InstantiateXenomorph(attachedGameObject.transform.Position +
+                                               attachedGameObject.transform.Forward *
+                                               (collider.radius + 12.5f),
+                                               attachedGameObject.transform.Rotation,
+                                               scale);
+        }
+
+        attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+
+        countDown += Time.deltaTime;
+        if (countDown >= spawnDuration)
+        {
+            countDown = 0.0f;
+
+            spawned = false;
+            currentAttack = Attacks.None;
+            attackedFinished = true;
+        }
+    }
+
+    bool onAir = false;
+    bool posCalc = true;
+    int jumpNum = 0;
+    private void Jump()
+    {
+        if (attackFirstFrame)
+        {
+            attachedGameObject.animator.Play("Giant_Stomp");
+            attackFirstFrame = false;
+
+            stopCountDown = 0;
+            jumpNum = 0;
+            posCalc = true;
+        }
+
+        stopCountDown += Time.deltaTime;
+
+        if (stopCountDown > 2.43f) { onAir = false; }
+        else if (stopCountDown > 1.2f)
+        {
+            if (posCalc)
+            {
+                posCalc = false;
+                attachedGameObject.transform.Position = new Vector3(playerGO.transform.Position.x,
+                                                                    attachedGameObject.transform.Position.y,
+                                                                    playerGO.transform.Position.z);
+            }
+        }
+        else if (stopCountDown > 0.9f) { onAir = true; }
+
+        if (onAir) { collider.radius = 0.0f; }
+        else { collider.radius = initialColliderRadius; }
+
+        if (attachedGameObject.animator.CurrentAnimHasFinished)
+        {
+            if (jumpNum >= 2)
+            {
+                attackedFinished = true;
+                attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+            }
+            else
+            {
+                jumpNum++;
+                posCalc = true;
+                stopCountDown = 0;
+                attachedGameObject.animator.Play("Giant_Stomp");
+            }
+        }
+    }
+
+    float headChargeDuration = 3.0f;
+    float chargeSpeed = 250.0f;
+    float stopCountDown = 0;
+    private void HeadCharge()
+    {
+        if (attackFirstFrame)
+        {
+            attachedGameObject.animator.Play("Head_Charge");
+            attackFirstFrame = false;
+
+            countDown = 0;
+            stopCountDown = 0;
+            attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+        }
+
+        stopCountDown += Time.deltaTime;
+        if (stopCountDown > 1.05f && stopCountDown < 3.15f)
+        {
+            attachedGameObject.transform.Translate(attachedGameObject.transform.Forward * chargeSpeed * Time.deltaTime);
+        }
+
+        countDown += Time.deltaTime;
+        if (countDown >= headChargeDuration)
+        {
+            attachedGameObject.transform.LookAt2D(playerGO.transform.Position);
+            attackedFinished = true;
+        }
+    }
+
+    #endregion
+
+    bool MoveTo(Vector3 targetPosition, float speed)
+    {
+        //Return true if arrived at destination
+        if (Vector3.Distance(attachedGameObject.transform.Position, targetPosition) < 0.5f) return true;
+
+        Vector3 dirVector = (targetPosition - attachedGameObject.transform.Position).Normalize();
+        attachedGameObject.transform.Translate(dirVector * speed * Time.deltaTime);
+        return false;
+    }
+
+    public void ReduceLife()
+    {
+        currentLife -= playerScript.totalDamage;
+    }
+}`, 'cpp');
+
+        // Editor 2
+        createEditor('editor2', `#include "MonoManager.h"
+#include "MonoRegisterer.h"
+#include "Renderer2D.h"
+
+#include <iostream>
+#include <fstream>
+
+std::string GetAssemblyPath()
+{
+    std::string resultingAssembly;
+
+    // Check if the VisualStudioVersion environment variable is set
+
+    char* vsVersion = nullptr;
+    size_t len = 0;
+    errno_t err = _dupenv_s(&vsVersion, &len, "VisualStudioVersion");
+
+    if (err == 0 && vsVersion != nullptr)
+    {
+        // Running from Visual Studio
+#ifdef _DEBUG
+
+        resultingAssembly = "../TheOneScripting/bin/Debug/TheOneScripting.dll";
+
+#else
+
+        resultingAssembly = "../TheOneScripting/bin/Release/TheOneScripting.dll";
+
+#endif
+    }
+    else
+    {
+        // Running from generated .exe file
+        resultingAssembly = "TheOneScripting.dll";
+    }
+
+    free(vsVersion); // Remember to free the memory allocated by _dupenv_s
+    return resultingAssembly;
+}
+std::string GetMonoAssembliesPath()
+{
+    std::string resultingPath;
+
+    // Check if the VisualStudioVersion environment variable is set
+
+    char* vsVersion = nullptr;
+    size_t len = 0;
+    errno_t err = _dupenv_s(&vsVersion, &len, "VisualStudioVersion");
+
+    if (err == 0 && vsVersion != nullptr)
+    {
+        // Running from Visual Studio
+        resultingPath = "../mono/lib/4.5";
+    }
+    else 
+    {
+        // Running from generated .exe file
+        resultingPath = "mono/lib/4.5";
+    }
+
+    free(vsVersion); // Remember to free the memory allocated by _dupenv_s
+    return resultingPath;
+}
+
+void MonoManager::InitMono()
 {
     mono_set_assemblies_path(GetMonoAssembliesPath().c_str());
 
     MonoDomain* rootDomain = mono_jit_init("MyScriptRuntime");
-    if (rootDomain == nullptr)
-    {
+	if (rootDomain == nullptr)
+	{
         LOG(LogType::LOG_ERROR, "MonoDomain has not been initialised correctly.");
-        return;
-    }
+		return;
+	}
 
-    // Store the root domain pointer
-    monoData.monoRootDomain = rootDomain;
+	// Store the root domain pointer
+	monoData.monoRootDomain = rootDomain;
 
-    char appDomainName[] = "MyAppDomain";
+	char appDomainName[] = "MyAppDomain";
     monoData.monoAppDomain = mono_domain_create_appdomain(appDomainName, nullptr);
-    mono_domain_set(monoData.monoAppDomain, true);
+	mono_domain_set(monoData.monoAppDomain, true);
 
     monoData.mainAssembly = LoadCSharpAssembly(GetAssemblyPath().c_str());
 
     MonoRegisterer::RegisterFunctions();
-}`, 'cpp');
+}
 
-        // Editor 2
-        createEditor('editor2', `MonoObject* MonoManager::InstantiateClass(const char* className, GameObject* containerGOptr)
+void MonoManager::ShutDownMono()
 {
-    monoData.currentGameObjectPtr = containerGOptr;
+	mono_domain_set(mono_get_root_domain(), false);
 
+	mono_domain_unload(monoData.monoAppDomain);
+    monoData.monoAppDomain = nullptr;
+
+	mono_jit_cleanup(monoData.monoRootDomain);
+    monoData.monoRootDomain = nullptr;
+
+    monoData.mainAssembly = nullptr;
+}
+
+MonoObject* MonoManager::InstantiateClass(const char* className, GameObject* containerGOptr)
+{
     // Get a reference to the class we want to instantiate
     MonoClass* classToInstantiate = GetClassInAssembly(monoData.mainAssembly, "", className);
 
@@ -480,9 +1239,163 @@
     mono_runtime_object_init(classInstance);
     LOG(LogType::LOG_MONO, "Instance of %s created and initialized with GO name %s", className, containerGOptr->GetName().c_str());
 
-    monoData.currentGameObjectPtr = nullptr;
-
     return classInstance;
+}
+
+void* MonoManager::CallScriptFunction(MonoObject* monoBehaviourInstance, std::string functionToCall)
+{
+    // Get the MonoClass pointer from the instance
+    MonoClass* instanceClass = mono_object_get_class(monoBehaviourInstance);
+    MonoClass* currentClass = instanceClass;
+
+    MonoMethod* method = nullptr;
+
+    // Traverse the class hierarchy to find the method
+    while (currentClass != nullptr && method == nullptr)
+    {
+        // Get a reference to the method in the current class
+        method = mono_class_get_method_from_name(currentClass, functionToCall.c_str(), 0);
+
+        if (method == nullptr)
+        {
+            // Move to the parent class
+            currentClass = mono_class_get_parent(currentClass);
+        }
+    }
+
+    if (method == nullptr)
+    {
+        //Used for handling virtual functions errors
+        for (auto& checkFunction : functionsToIgnore)
+        {
+            if (functionToCall == checkFunction) return nullptr;
+        }
+
+        LOG(LogType::LOG_ERROR, "Could not find method %s in %s", functionToCall.c_str(), mono_class_get_name(instanceClass));
+        return nullptr;
+    }
+
+    // Call the C# method on the objectInstance instance, and get any potential exceptions
+    MonoObject* exception = nullptr;
+    MonoObject* returnResult = mono_runtime_invoke(method, monoBehaviourInstance, nullptr, &exception);
+    void* functionToReturn = reinterpret_cast<void*>(returnResult);
+
+    //Handle the exception
+    if (exception != nullptr)
+    {
+        LOG(LogType::LOG_ERROR, "Exception occurred with %s from %s", functionToCall.c_str(), mono_class_get_name(instanceClass));
+        return nullptr;
+    }
+
+    return functionToReturn;
+}
+
+void* MonoManager::CallScriptFunction(MonoObject* monoBehaviourInstance, std::string functionToCall, void* params[], int parameterCount)
+{
+    // Get the MonoClass pointer from the instance
+    MonoClass* instanceClass = mono_object_get_class(monoBehaviourInstance);
+
+    // Get a reference to the method in the class
+    MonoMethod* method = mono_class_get_method_from_name(instanceClass, functionToCall.c_str(), parameterCount);
+
+    if (method == nullptr)
+    {
+        // Get the parent class (MonoBehaviour's base class)
+        MonoClass* parentClass = mono_class_get_parent(instanceClass);
+
+        method = mono_class_get_method_from_name(parentClass, functionToCall.c_str(), 0);
+    }
+
+    if (method == nullptr)
+    {
+        LOG(LogType::LOG_ERROR, "Could not find method %s", functionToCall);
+        return nullptr;
+    }
+
+    // Call the C# method on the objectInstance instance, and get any potential exceptions
+    MonoObject* exception = nullptr;
+    MonoObject* returnResult = mono_runtime_invoke(method, monoBehaviourInstance, params, &exception);
+    void* functionToReturn = reinterpret_cast<void*>(returnResult);
+
+    //Handle the exception
+    if (exception != nullptr)
+    {
+        LOG(LogType::LOG_ERROR, "Exception occurred");
+        mono_print_unhandled_exception(exception);
+        return nullptr;
+    }
+
+    return functionToReturn;
+}
+
+bool MonoManager::IsClassInMainAssembly(const char* className)
+{
+    MonoImage* image = mono_assembly_get_image(monoData.mainAssembly);
+    MonoClass* cSharpClass = mono_class_from_name(image, "", className);
+
+    if (cSharpClass != nullptr) { return true; }
+
+    return false;
+}
+
+char* MonoManager::ReadBytes(const std::string& filepath, uint32_t* outSize)
+{
+    std::ifstream stream(filepath, std::ios::binary | std::ios::ate);
+
+    if (!stream)
+    {
+        // Failed to open the file
+        return nullptr;
+    }
+
+    std::streampos end = stream.tellg();
+    stream.seekg(0, std::ios::beg);
+    uint32_t size = end - stream.tellg();
+
+    if (size == 0)
+    {
+        // File is empty
+        return nullptr;
+    }
+
+    char* buffer = new char[size];
+    stream.read((char*)buffer, size);
+    stream.close();
+
+    *outSize = size;
+    return buffer;
+}
+
+MonoAssembly* MonoManager::LoadCSharpAssembly(const std::string& assemblyPath)
+{
+    uint32_t fileSize = 0;
+    char* fileData = ReadBytes(assemblyPath, &fileSize);
+
+    // NOTE: We can't use this image for anything other than loading the assembly because this image doesn't have a reference to the assembly
+    MonoImageOpenStatus status;
+    MonoImage* image = mono_image_open_from_data_full(fileData, fileSize, 1, &status, 0);
+
+    if (status != MONO_IMAGE_OK)
+    {
+        const char* errorMessage = mono_image_strerror(status);
+        LOG(LogType::LOG_ERROR, "Mono image had an error when loading assembly. Error: %s", errorMessage);
+        return nullptr;
+    }
+
+    MonoAssembly* assembly = mono_assembly_load_from_full(image, assemblyPath.c_str(), &status, 0);
+    mono_image_close(image);
+
+    delete[] fileData;
+
+    return assembly;
+}
+
+MonoClass* MonoManager::GetClassInAssembly(MonoAssembly* assembly, const char* namespaceName, const char* className)
+{
+    MonoImage* image = mono_assembly_get_image(assembly);
+    MonoClass* cSharpClass = mono_class_from_name(image, namespaceName, className);
+
+    return cSharpClass;
 }`, 'cpp');
 
         // Editor 3
